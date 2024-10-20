@@ -31,10 +31,10 @@ const Intro = () => {
                 <Flex fontSize={isPhoneScreen ? "2rem" : isSmallScreen ? "2.5rem" : isTabletScreen ? "3rem" : "4rem"} gap={"24px"} letterSpacing={"1.28px"}>
                     <Text color={"#01FF12"}>Narcis</Text><Text color={"#FFFFFF"}>Nacev</Text>
                 </Flex>
-                <Text fontSize={isPhoneScreen ? "1.25rem" : "1.5rem"} letterSpacing={"1.28px"}>
+                <Text fontSize={isPhoneScreen ? "1.25rem" : "1.5rem"} letterSpacing={"1.28px"} fontWeight={"normal"}>
                     Software Engineer
                 </Text>
-                <Text color={"#FFFFFF"} width={isPhoneScreen ? "100%" : isSmallScreen ? "100%" : isTabletScreen ? "60%" : "43%"} letterSpacing={"0.48px"} mt={"20px"}>
+                <Text color={"#FFFFFF"} width={isPhoneScreen ? "100%" : isSmallScreen ? "100%" : isTabletScreen ? "60%" : "43%"} letterSpacing={"0.48px"} mt={"20px"} lineHeight={"2"}>
                     From Nairobi, Kenya. I have rich experience
                     in development cycle for dynamic web projects,
                     app development, and I am also proficient in

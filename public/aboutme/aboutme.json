@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "content": "Develop highly interactive Front end / User Interfaces for the web"
+  },
+  {
+    "id": 2,
+    "content": "Progressive Web Applications (PWA) in normal and SPA Stacks"
+  },
+  {
+    "id": 3,
+    "content": "Integration of third-party services such as AWS / Digital Ocean"
+  },
+  {
+    "id": 4,
+    "content":  "Integration of payment services such as M-Pesa and PayPal etc"
+  }
+]
