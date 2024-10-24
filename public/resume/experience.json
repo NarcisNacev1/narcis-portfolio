@@ -1,0 +1,26 @@
+[
+  {
+    "id": 3,
+    "schoolName": "Papucar",
+    "degree": "da",
+    "fromYear": "2023",
+    "toYear": "Present",
+    "description": "zzzz"
+  },
+  {
+    "id": 2,
+    "schoolName": "Otpadni zavod",
+    "degree": "opasen covek",
+    "fromYear": "2019",
+    "toYear": "2023",
+    "description": "sranje"
+  },
+  {
+    "id": 1,
+    "schoolName": "Viluskar",
+    "degree": "Pomosnik bagerist",
+    "fromYear": "2010",
+    "toYear": "2019",
+    "description": "jebiga"
+  }
+]
