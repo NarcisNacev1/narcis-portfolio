@@ -4,23 +4,23 @@
     "schoolName": "University American Collage Skopje",
     "degree": "Computer Science",
     "fromYear": "2023",
-    "toYear": "Present",
-    "description": "AAAAAAAAAAAAAAA"
+    "toYear": "PRESENT",
+    "description": "Pursuing a Bachelor’s degree in Computer Science, gaining a \nsolid foundation in programming, algorithms, and data \nstructures. Engaging in hands-on projects that foster problem solving and critical thinking skills, preparing me for real-world \napplication of modern technologies"
   },
   {
     "id": 2,
-    "schoolName": "Kosta Susinov",
-    "degree": "MiddleSchool Education",
+    "schoolName": "SOY Kosta Susinov",
+    "degree": "Electrical Technician for Computer Engineering and Automation",
     "fromYear": "2019",
     "toYear": "2023",
-    "description": "shit"
+    "description": "Secondary School Where i learned the basics of programming\n"
   },
   {
     "id": 1,
     "schoolName": "Orce Nikolov",
-    "degree": "Primary Education",
+    "degree": "9th Grade - Primary School Graduation",
     "fromYear": "2010",
     "toYear": "2019",
-    "description": "good times"
+    "description": "Primary Education"
   }
 ]

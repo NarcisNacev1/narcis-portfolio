@@ -8,3 +8,14 @@ export const ResumeIconFlexStyle = {
     cursor: "pointer",
     transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out',
 }
+
+export const presentStyles = {
+    color: "#01FF12",
+    fontWeight: "bold",
+    textShadow: "none",
+    marginLeft: "0px",
+    align: "right",
+
+};
+
+

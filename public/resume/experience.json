@@ -1,26 +1,42 @@
 [
   {
+    "id": 5,
+    "schoolName": "Wabtec Corporation",
+    "degree": "IT Summer Intern",
+    "fromYear": "Aug 2024",
+    "toYear": "Sep 2024",
+    "description": "Contributed to IT tasks within a quality team, focusing on data management, process efficiency, and supporting analytics through MeasureLink integration. Played a key role in automating data tracking with a QR code project, ensuring accuracy through data cleaning and facilitating training on analytics software and Excel proficiency."
+  },
+  {
+    "id": 4,
+    "schoolName": "ROI Academy",
+    "degree": "Programming Intern",
+    "fromYear": "Jul 2024",
+    "toYear": "Aug 2024",
+    "description": "Developed a \"Cryptocurrency Portfolio Tracker\" application that allows users to manage transactions with real-time price updates from an external API and utilizes PostgreSQL for efficient data storage. Implemented user authentication to secure access and enhanced the user experience by providing portfolio valuation and performance metrics for effective investment tracking. Gained knowledge in Django, Python, RESTful APIs, Postman, and Docker throughout the development process.\n"
+  },
+  {
     "id": 3,
-    "schoolName": "Papucar",
-    "degree": "da",
-    "fromYear": "2023",
-    "toYear": "Present",
-    "description": "zzzz"
+    "schoolName": "Insurance Supermarket \nInternational USA",
+    "degree": "Intermediary",
+    "fromYear": "Jun 2022",
+    "toYear": "Sep 2022",
+    "description": "Acted as an intermediary between American clients and life insurance agents, facilitating effective communication while managing multiple inquiries and interactions. Utilized Slack and Excel for streamlined project management and data analysis, enhancing operational efficiency and honing teamwork skills."
   },
   {
     "id": 2,
-    "schoolName": "Otpadni zavod",
-    "degree": "opasen covek",
-    "fromYear": "2019",
-    "toYear": "2023",
-    "description": "sranje"
+    "schoolName": "Ayecode",
+    "degree": "Wordpress Developer",
+    "fromYear": "Dec 2021",
+    "toYear": "Jul 2023",
+    "description": "Worked as a freelance contractor in website design and management, building and overseeing a WordPress site while creating engaging content. Developed skills in copywriting, web development, and user experience optimization to deliver high-quality digital solutions aligned with client objectives."
   },
   {
     "id": 1,
-    "schoolName": "Viluskar",
-    "degree": "Pomosnik bagerist",
-    "fromYear": "2010",
-    "toYear": "2019",
-    "description": "jebiga"
+    "schoolName": "Freelance Social Media Manager",
+    "degree": "Content Manager",
+    "fromYear": "Feb 2020",
+    "toYear": "Jun 2023",
+    "description": "Managed the Instagram account @AyeCode.tv, successfully growing it to over 120,000 followers through strategic content scheduling and video editing. Leveraged client collaborations and engagement metrics to enhance visibility, refine strategies, and develop skills in social media marketing and content monetization."
   }
 ]

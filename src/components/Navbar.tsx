@@ -46,7 +46,6 @@ const Navbar = () => {
                     >
                         <Text sx={navLinks}>Home</Text>
                         <Text sx={navLinks}>About</Text>
-                        <Text sx={navLinks}>Services</Text>
                         <Text sx={navLinks}>Resume</Text>
                         <Text sx={navLinks}>Skills</Text>
                         <Text sx={navLinks}>Projects</Text>
