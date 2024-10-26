@@ -29,7 +29,7 @@ const Resume = () => {
                 mt={isPhoneScreen || isTabletScreen ? "20px" : "10px"}
             >
                 <Flex
-                    fontSize={isPhoneScreen ? "1.75rem" : isSmallScreen ? "2rem" : isTabletScreen ? "2.5rem" : "3rem"}
+                    fontSize={isPhoneScreen ? "1.75rem" : isSmallScreen ? "2rem" : isTabletScreen ? "1.5rem" : "1.5rem"}
                     gap={"9px"}
                     letterSpacing={"1.1px"}
                     alignItems="center"

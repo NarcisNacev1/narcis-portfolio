@@ -1,0 +1,102 @@
+[
+  {
+    "id": 20,
+    "skillName": "C#",
+    "image": "images/skills/charp.png"
+  },
+  {
+    "id": 19,
+    "skillName": "Bash",
+    "image": "images/skills/bash.png"
+  },
+  {
+    "id": 18,
+    "skillName": "C++",
+    "image": "images/skills/cplusplus.png"
+  },
+  {
+    "id": 17,
+    "skillName": "CSS",
+    "image": "images/skills/css.png"
+  },
+  {
+    "id": 16,
+    "skillName": "Django",
+    "image": "images/skills/django.png"
+  },
+  {
+    "id": 15,
+    "skillName": "Docker",
+    "image": "images/skills/docker.png"
+  },
+  {
+    "id": 14,
+    "skillName": "Figma",
+    "image": "images/skills/figma.png"
+  },
+  {
+    "id": 13,
+    "skillName": "Flask",
+    "image": "images/skills/flask.png"
+  },
+  {
+    "id": 12,
+    "skillName": "Git",
+    "image": "images/skills/git.png"
+  },
+  {
+    "id": 11,
+    "skillName": "Github",
+    "image": "images/skills/github.png"
+  },
+  {
+    "id": 10,
+    "skillName": "HTML",
+    "image": "images/skills/html.png"
+  },
+  {
+    "id": 9,
+    "skillName": "Java",
+    "image": "images/skills/java.png"
+  },
+  {
+    "id": 8,
+    "skillName": "Postgresql",
+    "image": "images/skills/postgresql.png"
+  },
+  {
+    "id": 7,
+    "skillName": "Postman",
+    "image": "images/skills/postman.png"
+  },
+  {
+    "id": 6,
+    "skillName": "Powershell",
+    "image": "images/skills/powershell.png"
+  },
+  {
+    "id": 5,
+    "skillName": "React",
+    "image": "images/skills/react.png"
+  },
+  {
+    "id": 4,
+    "skillName": "SQL",
+    "image": "images/skills/sql.png"
+  },
+  {
+    "id": 3,
+    "skillName": "Typescript",
+    "image": "images/skills/typescript.png"
+  },
+  {
+    "id": 2,
+    "skillName": "Wordpress",
+    "image": "images/skills/wordpress.png"
+  },
+  {
+    "id": 1,
+    "skillName": "Python",
+    "image": "images/skills/python.png"
+  }
+]
