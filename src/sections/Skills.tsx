@@ -1,4 +1,4 @@
-import { Box, Flex, Text, useMediaQuery, VStack } from "@chakra-ui/react";
+import {Box, Flex, Text, useMediaQuery, VStack} from "@chakra-ui/react";
 import skillsData from "../../public/skills/skills.json";
 import { ISkillsBox } from "../interfaces/skills.interface.ts";
 import SkillsBox from "../components/SkillsBox.tsx";

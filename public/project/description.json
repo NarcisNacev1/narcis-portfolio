@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "type": "Data Extraction Tool",
+    "name": "Web Scraper",
+    "image": "images/projects/WebScraper.jpg",
+    "techStack": "Tech Stack: Python",
+    "githubLink": "https://github.com/NarcisNacev1/WebScraper",
+    "description": "This web scraper is designed to fetch data on top players from the GPlay Dota Premium Ladder page. By utilizing Python's requests library for HTTP requests and BeautifulSoup4 for HTML parsing, the scraper extracts and organizes player names along with their associated points, making it easy to retrieve and analyze ranking data."
+  }
+]
