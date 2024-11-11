@@ -1,6 +1,6 @@
 import { Box, Flex, Text, VStack, HStack, Image, Button, Spacer } from "@chakra-ui/react";
 import { IProjectsBox } from "../interfaces/projects.interface.ts";
-import { FaGithub } from "react-icons/fa"; // Import the GitHub icon
+import { FaGithub } from "react-icons/fa";
 
 const ProjectsBox = ({
                          type,
