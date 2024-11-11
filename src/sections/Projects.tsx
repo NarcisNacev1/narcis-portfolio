@@ -24,9 +24,8 @@ const Projects = () => {
                 alignItems={"center"}
                 justifyContent={"flex-start"}
                 mt={isPhoneScreen || isTabletScreen ? "20px" : "10px"}
-                spacing="40px" // Add spacing between project boxes
+                spacing="40px"
             >
-                {/* Title section */}
                 <Flex
                     fontSize={isPhoneScreen ? "1.75rem" : isSmallScreen ? "2rem" : "1.5rem"}
                     gap={"9px"}
@@ -34,13 +33,11 @@ const Projects = () => {
                     alignItems="center"
                     justifyContent="center"
                     fontWeight={"regular"}
-                    mb={"10px"}
                 >
                     <Text color={"#FFFFFF"}>Latest</Text>
                     <Text color={"#FFFFFF"}>Works</Text>
                 </Flex>
 
-                {/* Subtitle */}
                 <Flex
                     direction="row"
                     alignItems="center"
@@ -53,9 +50,8 @@ const Projects = () => {
                     <Text color={"#FFFFFF"}>Explore My Popular</Text><Text color={"#01FF12"}>Projects</Text>
                 </Flex>
 
-                {/* Project list */}
                 <VStack
-                    spacing="30px" // Adds space between each ProjectsBox
+                    spacing="30px"
                     width={"100%"}
                     align={"center"}
                 >
@@ -65,10 +61,10 @@ const Projects = () => {
                             width={{ base: "100%", lg: "1359px" }}
                             height="300px"
                             borderRadius="10px"
-                            boxShadow="0px 0px 10px 1px rgba(255, 255, 255, 0.3)" // Shadow effect
+                            boxShadow="0px 0px 10px 1px rgba(255, 255, 255, 0.3)"
                             overflow="hidden"
-                            transition="transform 0.3s ease-in-out" // Smooth scaling
-                            _hover={{ transform: "scale(1.02)" }} // Scale on hover
+                            transition="transform 0.3s ease-in-out"
+                            _hover={{ transform: "scale(1.02)" }}
                         >
                             <ProjectsBox
                                 type={project.type}
