@@ -1,7 +1,7 @@
-import { Box, Flex, HStack, Text, useMediaQuery, VStack } from "@chakra-ui/react";
-import ProjectsBox from "../components/ProjectsBox"; // Assume a component similar to ResumeBox exists
-import projectsData from "../../public/project/description.json"; // Assume your project data is structured in a JSON file
-import { IProjectsBox } from "../interfaces/projects.interface.ts"; // Ensure you have an interface for projects if needed
+import { Box, Flex, VStack, Text, useMediaQuery } from "@chakra-ui/react";
+import ProjectsBox from "../components/ProjectsBox";
+import projectsData from "../../public/project/description.json";
+import { IProjectsBox } from "../interfaces/projects.interface.ts";
 
 const Projects = () => {
     const projects: IProjectsBox[] = projectsData;
@@ -24,6 +24,7 @@ const Projects = () => {
                 alignItems={"center"}
                 justifyContent={"flex-start"}
                 mt={isPhoneScreen || isTabletScreen ? "20px" : "10px"}
+                spacing="40px" // Add spacing between project boxes
             >
                 {/* Title section */}
                 <Flex
@@ -50,41 +51,36 @@ const Projects = () => {
                     fontWeight={"medium"}
                 >
                     <Text color={"#FFFFFF"}>Explore My Popular</Text><Text color={"#01FF12"}>Projects</Text>
-
                 </Flex>
 
                 {/* Project list */}
-                <HStack
-                    mt={"60px"}
-                    gap={{ base: "20px", sm: "40px", md: "100px" }}
-                    alignItems={isPhoneScreen || isTabletScreen ? "center" : "flex-start"}
-                    flexWrap={isPhoneScreen || isTabletScreen ? "wrap" : "nowrap"}
-                    width={isPhoneScreen || isTabletScreen ? "90%" : " "}
+                <VStack
+                    spacing="30px" // Adds space between each ProjectsBox
+                    width={"100%"}
+                    align={"center"}
                 >
-                    {/* Map each project to a ProjectBox component */}
-                    <VStack
-                        spacing="20px"
-                        width="100%"
-                        align="left"
-                    >
+                    {projects.map((project) => (
                         <Box
-                            width="100%"
-                            p={isPhoneScreen ? "10px" : isTabletScreen ? "15px" : "0"}
+                            key={project.name}
+                            width={{ base: "100%", lg: "1359px" }}
+                            height="300px"
+                            borderRadius="10px"
+                            boxShadow="0px 0px 10px 1px rgba(255, 255, 255, 0.3)" // Shadow effect
+                            overflow="hidden"
+                            transition="transform 0.3s ease-in-out" // Smooth scaling
+                            _hover={{ transform: "scale(1.02)" }} // Scale on hover
                         >
-                            {projects.map((project) => (
-                                <ProjectsBox
-                                    key={project.name}
-                                    type={project.type}
-                                    name={project.name}
-                                    image={project.image}
-                                    techStack={project.techStack}
-                                    githubLink={project.githubLink}
-                                    description={project.description}
-                                />
-                            ))}
+                            <ProjectsBox
+                                type={project.type}
+                                name={project.name}
+                                image={project.image}
+                                techStack={project.techStack}
+                                githubLink={project.githubLink}
+                                description={project.description}
+                            />
                         </Box>
-                    </VStack>
-                </HStack>
+                    ))}
+                </VStack>
             </VStack>
         </Box>
     );

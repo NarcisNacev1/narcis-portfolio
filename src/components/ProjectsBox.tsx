@@ -1,4 +1,4 @@
-import { Box, Flex, Text, VStack, HStack, Image, Button } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack, HStack, Image, Button, Spacer } from "@chakra-ui/react";
 import { IProjectsBox } from "../interfaces/projects.interface.ts";
 import { FaGithub } from "react-icons/fa"; // Import the GitHub icon
 
@@ -53,7 +53,7 @@ const ProjectsBox = ({
                         {name}
                     </Text>
 
-                    <HStack>
+                    <HStack width={"100%"}>
                         <Text fontSize={{ base: "1rem", lg: "1.25rem" }} color="#01FF12">
                             {type}
                         </Text>
@@ -64,11 +64,11 @@ const ProjectsBox = ({
                     </Text>
 
                     {/* GitHub Button next to Tech Stack */}
-                    <HStack spacing="450px" align="center">
+                    <HStack align="center" width="100%">
                         <Text fontSize={{ base: "0.875rem", lg: "1rem" }} fontWeight={"bold"} color="#BBB">
                             {techStack}
                         </Text>
-
+                        <Spacer /> {/* Spacer pushes the button to the right */}
                         <Button
                             as="a"
                             href={githubLink}
@@ -77,7 +77,11 @@ const ProjectsBox = ({
                             variant="outline"
                             colorScheme="#BBB"
                             size="sm"
-                            _hover={{ bg: "#01FF12", color: "black" }} // Green hover effect
+                            _hover={{
+                                bg: "#01FF12",
+                                color: "black",
+                                boxShadow: "0 4px 10px rgba(0, 255, 18, 0.6)", // Glowing effect on hover
+                            }} // Green hover effect with glowing shadow
                             leftIcon={<FaGithub />}
                         >
                             GitHub
