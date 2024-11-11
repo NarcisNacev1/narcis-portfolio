@@ -20,7 +20,6 @@ const ProjectsBox = ({
             overflow="hidden"
         >
             <Flex height="100%">
-                {/* Project Image on Left */}
                 <Box
                     width={{ base: "40%", lg: "45%" }}
                     height="100%"
@@ -41,7 +40,6 @@ const ProjectsBox = ({
                     />
                 </Box>
 
-                {/* Project Details on Right */}
                 <VStack
                     align="left"
                     p={{ base: "10px", lg: "20px" }}
@@ -63,12 +61,11 @@ const ProjectsBox = ({
                         {description}
                     </Text>
 
-                    {/* GitHub Button next to Tech Stack */}
                     <HStack align="center" width="100%">
                         <Text fontSize={{ base: "0.875rem", lg: "1rem" }} fontWeight={"bold"} color="#BBB">
                             {techStack}
                         </Text>
-                        <Spacer /> {/* Spacer pushes the button to the right */}
+                        <Spacer />
                         <Button
                             as="a"
                             href={githubLink}
@@ -80,8 +77,8 @@ const ProjectsBox = ({
                             _hover={{
                                 bg: "#01FF12",
                                 color: "black",
-                                boxShadow: "0 4px 10px rgba(0, 255, 18, 0.6)", // Glowing effect on hover
-                            }} // Green hover effect with glowing shadow
+                                boxShadow: "0 4px 10px rgba(0, 255, 18, 0.6)",
+                            }}
                             leftIcon={<FaGithub />}
                         >
                             GitHub
