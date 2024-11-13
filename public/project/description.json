@@ -4,44 +4,49 @@
     "type": "Social Media Platform",
     "name": "Scripted",
     "image": "images/projects/Scripted.jpg",
-    "techStack": "Tech Stack: Django, React, PostgreSQL",
+    "techStack": "Django, React, PostgreSQL",
     "githubLink": " ",
-    "description": "Scripted is a collaborative project I'm developing with colleagues from Macedonia. It’s a social media platform tailored for developers, offering features like post creation, commenting, liking, following, and direct messaging. Designed to foster connection and collaboration, Scripted serves as a space for developers of all levels to share knowledge and build their networks."
+    "description": "Scripted is a collaborative project I'm developing with colleagues from Macedonia. It’s a social media platform tailored for developers, offering features like post creation, commenting, liking, following, and direct messaging. Designed to foster connection and collaboration, Scripted serves as a space for developers of all levels to share knowledge and build their networks.",
+    "status": "In Progress"
   },
   {
     "id": 4,
     "type": "Voice Recognition / Text Editor",
     "name": "Python Audio Text Editor",
     "image": "images/projects/PythonAudioTextEditor.jpg",
-    "techStack": "Tech Stack: Python",
+    "techStack": "Python",
     "githubLink": "https://github.com/NarcisNacev1/PythonAudioTextEditor",
-    "description": "A unique text editor application built in Python with a voice recognition feature. This program allows users to dictate text, which the editor then transcribes, creating an interactive and hands-free text-editing experience."
+    "description": "A unique text editor application built in Python with a voice recognition feature. This program allows users to dictate text, which the editor then transcribes, creating an interactive and hands-free text-editing experience.",
+    "status": "Finished"
   },
   {
-  "id": 3,
-  "type": "Portfolio Management Application",
-  "name": "Cryptocurrency Portfolio Tracker",
-  "image": "images/projects/CryptocurrencyPortfolioTracker.jpg",
-  "techStack": "Tech Stack: Python, Django",
-  "githubLink": "https://github.com/NarcisNacev1/Cryptocurrency-Portfolio-Tracker",
-  "description": "This application is a robust platform for managing cryptocurrency investments, designed to help users track real-time price updates, add and manage transactions, and monitor portfolio performance. Built with a focus on functionality and efficiency, this project utilizes Flask for backend development and integrates PostgreSQL for data storage, making it an excellent tool for cryptocurrency portfolio management."
+    "id": 3,
+    "type": "Portfolio Management Application",
+    "name": "Cryptocurrency Portfolio Tracker",
+    "image": "images/projects/CryptocurrencyPortfolioTracker.jpg",
+    "techStack": "Django, PostgreSQL",
+    "githubLink": "https://github.com/NarcisNacev1/Cryptocurrency-Portfolio-Tracker",
+    "description": "This application is a robust platform for managing cryptocurrency investments, designed to help users track real-time price updates, add and manage transactions, and monitor portfolio performance. Built with a focus on functionality and efficiency, this project utilizes Flask for backend development and integrates PostgreSQL for data storage, making it an excellent tool for cryptocurrency portfolio management.",
+    "status": "Finished"
   },
   {
     "id": 2,
     "type": "2D C++ Game",
     "name": "The Lonely Knight",
     "image": "images/projects/LonleyKnight1.jpg",
-    "techStack": "Tech Stack: C++",
+    "techStack": "C++",
     "githubLink": "https://github.com/NarcisNacev1/GameEngine-LonleyKnightGame",
-    "description": "This project is my first substantial game development experience, which I created at the end of my first year at university. Designed as a 2D action-adventure game, LonelyKnight challenged me to apply core C++ concepts in a real-world application. Developing this game required a lot of persistence, troubleshooting, and creative problem-solving, but seeing the final product was highly rewarding."
+    "description": "This project is my first substantial game development experience, which I created at the end of my first year at university. Designed as a 2D action-adventure game, LonelyKnight challenged me to apply core C++ concepts in a real-world application. Developing this game required a lot of persistence, troubleshooting, and creative problem-solving, but seeing the final product was highly rewarding.",
+    "status": "Finished"
   },
   {
     "id": 1,
     "type": "Data Extraction Tool",
     "name": "Web Scraper",
     "image": "images/projects/WebScraper.jpg",
-    "techStack": "Tech Stack: Python",
+    "techStack": "Python",
     "githubLink": "https://github.com/NarcisNacev1/WebScraper",
-    "description": "This web scraper is designed to fetch data on top players from the GPlay Dota Premium Ladder page. By utilizing Python's requests library for HTTP requests and BeautifulSoup4 for HTML parsing, the scraper extracts and organizes player names along with their associated points, making it easy to retrieve and analyze ranking data."
+    "description": "This web scraper is designed to fetch data on top players from the GPlay Dota Premium Ladder page. By utilizing Python's requests library for HTTP requests and BeautifulSoup4 for HTML parsing, the scraper extracts and organizes player names along with their associated points, making it easy to retrieve and analyze ranking data.",
+    "status": "Finished"
   }
 ]

@@ -5,4 +5,5 @@ export interface IProjectsBox {
     techStack?: string;
     githubLink?: string;
     description?: string;
+    status?: string;
 }
