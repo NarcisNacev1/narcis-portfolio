@@ -89,7 +89,7 @@ const ProjectsBox = ({
 
                     {/* Tech Stack */}
                     <Wrap spacing={2} mt={2}>
-                        {techStack.split(",").map((tech, index) => (
+                        {techStack?.split(",").map((tech, index) => (
                             <WrapItem key={index}>
                                 <Text
                                     fontSize={{ base: "0.875rem", lg: "1rem" }}
