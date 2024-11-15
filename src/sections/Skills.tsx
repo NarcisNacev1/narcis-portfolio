@@ -54,11 +54,12 @@ const Skills = () => {
                     </Flex>
                 </Flex>
                 <Grid
-                    width="95%"
-                    gap={"20px"}
+                    gap={"50px"}
                     p={{ base: "10px", md: "15px", lg: "0" }}
                     templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" }}
-                    justifyContent="center"
+                    justifyContent="centar"
+                    placeItems="center" // Ensures each grid item is centered within its cell
+
                 >
                     {skills.map((item) => (
                         <SkillsBox

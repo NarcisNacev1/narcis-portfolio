@@ -1,11 +1,35 @@
 [
   {
-    "id": 3,
+    "id": 6,
     "schoolName": "University American Collage Skopje",
     "degree": "Computer Science",
     "fromYear": "2023",
     "toYear": "PRESENT",
     "description": "Pursuing a Bachelor’s degree in Computer Science, gaining a \nsolid foundation in programming, algorithms, and data \nstructures. Engaging in hands-on projects that foster problem solving and critical thinking skills, preparing me for real-world \napplication of modern technologies"
+  },
+  {
+    "id": 5,
+    "schoolName": "Machine Learning Specialization by Andrew Ng ",
+    "degree": "Machine Learning",
+    "fromYear": "2024",
+    "toYear": "2024",
+    "description": "From November to December 2024, I completed the **Supervised Machine Learning: Regression and Classification** course by Andrew Ng. During this course, I learned the fundamentals of supervised learning, including regression and classification algorithms. I gained practical experience in building and evaluating models using techniques like linear regression, logistic regression, and decision trees. The course enhanced my understanding of data preprocessing, model optimization, and performance evaluation, helping me build more accurate and efficient machine learning models."
+  },
+  {
+    "id": 4,
+    "schoolName": "ROI Academy Python Advanced",
+    "degree": "Python Advanced Training",
+    "fromYear": "2024",
+    "toYear": "2024",
+    "description": "From April to May 2024 at ROI Academy, I completed Python Advanced Training, where I focused on advanced OOP, algorithms, and optimization. I also built a **Cryptocurrency Portfolio Manager** using Flask and Python, focusing on backend development. This project involved creating a system to manage cryptocurrency holdings, track real-time prices, and analyze portfolio performance, giving me hands-on experience with API integration and backend data handling."
+  },
+  {
+    "id": 3,
+    "schoolName": "ROI Academy Python Basic",
+    "degree": "Python Basic Training",
+    "fromYear": "2024",
+    "toYear": "2024",
+    "description": "From March to April 2024 at ROI Academy, I completed Python Basic Training, where I gained a solid foundation in Python programming. I learned essential syntax, worked with data types and structures, and used control structures to write efficient code. I also practiced writing functions and handling files, and got an introduction to object-oriented programming. By the end, I could write clean code, debug effectively, and felt confident in using Python for beginner-level tasks."
   },
   {
     "id": 2,

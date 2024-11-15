@@ -62,7 +62,6 @@ const Navbar = () => {
                         <VStack align="start" spacing="24px">
                             <Text sx={navLinks} onClick={onClose}>Home</Text>
                             <Text sx={navLinks} onClick={onClose}>About</Text>
-                            <Text sx={navLinks} onClick={onClose}>Services</Text>
                             <Text sx={navLinks} onClick={onClose}>Resume</Text>
                             <Text sx={navLinks} onClick={onClose}>Skills</Text>
                             <Text sx={navLinks} onClick={onClose}>Projects</Text>
