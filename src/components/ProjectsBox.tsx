@@ -57,8 +57,8 @@ const ProjectsBox = ({
                         src={imageUrl}
                         alt={name}
                         objectFit="cover"
-                        width="800px" // Set the width explicitly
-                        height="415px" // Set the height explicitly
+                        width={"885px"}
+                        height={"315px"}
                         borderRadius="10px 0 0 10px"
                         boxShadow="none"
                     />
@@ -67,7 +67,7 @@ const ProjectsBox = ({
                 {/* Project Details */}
                 <VStack
                     align="left"
-                    p={{ base: "10px", lg: "20px" }}
+                    p={{ base: "10px" }}
                     width={{ base: "100%", lg: "55%" }}
                     color="white"
                     justify="center"
@@ -87,8 +87,9 @@ const ProjectsBox = ({
                         {description}
                     </Text>
 
-                    {/* Tech Stack */}
-                    <Wrap spacing={2} mt={2}>
+                    {/* Tech Stack and GitHub Button */}
+                    <Wrap spacing={2} mt={2} align="center">
+                        {/* Tech Stack Items */}
                         {techStack?.split(",").map((tech, index) => (
                             <WrapItem key={index}>
                                 <Text
@@ -104,30 +105,32 @@ const ProjectsBox = ({
                                 </Text>
                             </WrapItem>
                         ))}
-                    </Wrap>
 
-                    {/* GitHub Button */}
-                    <HStack align="center" width="100%" mt={4}>
+                        {/* Spacer to push GitHub button to the far right */}
                         <Spacer />
-                        <Button
-                            as="a"
-                            href={githubLink}
-                            target="_blank"
-                            color={"#BBB"}
-                            variant="outline"
-                            colorScheme="gray"
-                            size="sm"
-                            _hover={{
-                                bg: "#01FF12",
-                                color: "black",
-                                boxShadow: "none",
-                            }}
-                            leftIcon={<FaGithub />}
-                            textDecoration="none"
-                        >
-                            GitHub
-                        </Button>
-                    </HStack>
+
+                        {/* GitHub Button */}
+                        <WrapItem>
+                            <Button
+                                as="a"
+                                href={githubLink}
+                                target="_blank"
+                                color={"#BBB"}
+                                variant="outline"
+                                colorScheme="gray"
+                                size="sm"
+                                _hover={{
+                                    bg: "#01FF12",
+                                    color: "black",
+                                    boxShadow: "none",
+                                }}
+                                leftIcon={<FaGithub />}
+                                textDecoration="none"
+                            >
+                                GitHub
+                            </Button>
+                        </WrapItem>
+                    </Wrap>
                 </VStack>
             </Flex>
         </Box>

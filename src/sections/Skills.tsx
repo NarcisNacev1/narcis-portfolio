@@ -1,21 +1,10 @@
-import {Box, Flex, Text, useMediaQuery, VStack} from "@chakra-ui/react";
+import { Box, Flex, Text, VStack, Grid } from "@chakra-ui/react";
 import skillsData from "../../public/skills/skills.json";
 import { ISkillsBox } from "../interfaces/skills.interface.ts";
 import SkillsBox from "../components/SkillsBox.tsx";
 
 const Skills = () => {
     const skills: ISkillsBox[] = skillsData;
-    const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
-    const [isTabletScreen] = useMediaQuery("(max-width: 1024px)");
-    const [isPhoneScreen] = useMediaQuery("(max-width: 480px)");
-    const [isBelow1358px] = useMediaQuery("(max-width: 1358px)");
-
-    const getWidthPercentage = () => {
-        if (isPhoneScreen) return "100%";
-        if (isTabletScreen) return "48%";
-        if (isSmallScreen || isBelow1358px) return "30%";
-        return "16%";
-    };
 
     return (
         <Box
@@ -25,16 +14,16 @@ const Skills = () => {
             display={"flex"}
             flexDirection={"column"}
             justifyContent={"center"}
-            p={isPhoneScreen ? "15px" : "0"}
+            p={{ base: "15px", md: "0" }}
         >
             <VStack
                 width={"100%"}
                 alignItems={"center"}
                 justifyContent={"flex-start"}
-                mt={isPhoneScreen || isTabletScreen ? "20px" : "60px"}
+                mt={{ base: "20px", md: "60px" }}
             >
                 <Flex
-                    fontSize={isPhoneScreen ? "1.75rem" : isSmallScreen ? "2rem" : isTabletScreen ? "1.5rem" : "1.5rem"}
+                    fontSize={{ base: "1.75rem", md: "2rem", lg: "2.5rem" }}
                     gap={"9px"}
                     letterSpacing={"1.1px"}
                     alignItems="center"
@@ -48,13 +37,13 @@ const Skills = () => {
                     direction="column"
                     alignItems="center"
                     justifyContent="center"
-                    fontSize={isPhoneScreen ? "1.5rem" : isSmallScreen ? "2rem" : "2.5rem"}
+                    fontSize={{ base: "1.5rem", md: "2rem" }}
                     gap={"9px"}
                     letterSpacing={"1.1px"}
                     fontWeight={"medium"}
                 >
                     <Flex
-                        fontSize={isPhoneScreen ? "1.5rem" : isSmallScreen ? "2rem" : "2.5rem"}
+                        fontSize={{ base: "1.5rem", md: "2rem", lg: "2.5rem" }}
                         gap={"9px"}
                         letterSpacing={"1.1px"}
                         alignItems={"center"}
@@ -64,22 +53,21 @@ const Skills = () => {
                         <Text color={"#FFFFFF"}>Professional</Text><Text color={"#FFFFFF"}>Skills</Text>
                     </Flex>
                 </Flex>
-                <Flex
+                <Grid
                     width="95%"
                     gap={"20px"}
-                    p={isPhoneScreen ? "10px" : isTabletScreen ? "15px" : "0"}
-                    wrap="wrap"
+                    p={{ base: "10px", md: "15px", lg: "0" }}
+                    templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" }}
                     justifyContent="center"
                 >
                     {skills.map((item) => (
-                        <Flex key={item.skillName} width={getWidthPercentage()} justifyContent="center">
-                            <SkillsBox
-                                skillName={item.skillName}
-                                image={item.image}
-                            />
-                        </Flex>
+                        <SkillsBox
+                            key={item.skillName}
+                            skillName={item.skillName}
+                            image={item.image}
+                        />
                     ))}
-                </Flex>
+                </Grid>
             </VStack>
         </Box>
     );
