@@ -4,23 +4,38 @@ import { buttonStyle, iconFlexStyle, iconStyle } from "../styles/sections/intro.
 
 const Intro = () => {
     const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
-    const [isTabletScreen] = useMediaQuery("(max-width: 1024px)");
-    const [isPhoneScreen] = useMediaQuery("(max-width: 480px)");
+    const [isTabletScreen] = useMediaQuery("(min-width: 769px)");
 
     return (
         <Box
             border="0px solid red"
-            height={isPhoneScreen || isSmallScreen || isTabletScreen ? "auto" : "600.5px"}
+            height={isSmallScreen ? "auto" : "600.5px"}
             width={"80%"}
             backgroundColor={"#131313"}
             m={"100px auto"}
-            p={isPhoneScreen ? "15px" : isSmallScreen ? "20px" : "0"}
+            p={isSmallScreen ? "20px" : "0"}
             display={"flex"}
-            flexDirection={isPhoneScreen || isSmallScreen ? "column" : "row"}
-            gap={isPhoneScreen ? "30px" : isSmallScreen || isTabletScreen ? "50px" : "150px"}
+            flexDirection={isSmallScreen ? "column" : "row"}
+            gap={isSmallScreen ? "50px" : "150px"}
             alignItems={"center"}
         >
-            <VStack alignItems={isPhoneScreen || isSmallScreen ? "center" : "left"} textAlign={isPhoneScreen || isSmallScreen ? "center" : "left"}>
+            {/* Image positioned at the top for small screens */}
+            {isSmallScreen && (
+                <Image
+                    border={"4px solid #01FF12"}
+                    src={"intro/bitmoji1.png"}
+                    width="300px"
+                    height="auto"
+                    borderRadius={"full"}
+                    margin="0 auto"
+                    transition={"transform 0.3s ease-in-out"}
+                    _hover={{
+                        transform: "scale(1.1)"
+                    }}
+                />
+            )}
+
+            <VStack alignItems={isSmallScreen ? "center" : "left"} textAlign={isSmallScreen ? "center" : "left"}>
                 <Text
                     textTransform={"uppercase"}
                     fontSize={"1.25rem"}
@@ -28,13 +43,13 @@ const Intro = () => {
                 >
                     hello, my name is
                 </Text>
-                <Flex fontSize={isPhoneScreen ? "2rem" : isSmallScreen ? "2.5rem" : isTabletScreen ? "3rem" : "4rem"} gap={"24px"} letterSpacing={"1.28px"}>
+                <Flex fontSize={isSmallScreen ? "2.5rem" : "4rem"} gap={"24px"} letterSpacing={"1.28px"}>
                     <Text color={"#01FF12"}>Narcis</Text><Text color={"#FFFFFF"}>Nacev</Text>
                 </Flex>
-                <Text fontSize={isPhoneScreen ? "1.25rem" : "1.5rem"} letterSpacing={"1.28px"} fontWeight={"normal"}>
+                <Text fontSize={isSmallScreen ? "1.5rem" : "1.5rem"} letterSpacing={"1.28px"} fontWeight={"normal"}>
                     Software Engineer
                 </Text>
-                <Text color={"#FFFFFF"} width={isPhoneScreen ? "100%" : isSmallScreen ? "100%" : isTabletScreen ? "60%" : "43%"} letterSpacing={"0.48px"} mt={"20px"} lineHeight={"2"}>
+                <Text color={"#FFFFFF"} width={isSmallScreen ? "100%" : "43%"} letterSpacing={"0.48px"} mt={"20px"} lineHeight={"2"}>
                     From Nairobi, Kenya. I have rich experience
                     in development cycle for dynamic web projects,
                     app development, and I am also proficient in
@@ -59,7 +74,7 @@ const Intro = () => {
                         Contact Me
                     </Button>
                 </HStack>
-                <HStack gap={isPhoneScreen ? "10px" : "20px"}>
+                <HStack gap={"20px"}>
                     <Flex sx={iconFlexStyle}>
                         <FiGithub style={iconStyle} />
                     </Flex>
@@ -74,20 +89,24 @@ const Intro = () => {
                     </Flex>
                 </HStack>
             </VStack>
-            <Box alignItems={"center"} justifyContent={"center"}>
-                <Image
-                    border={"4px solid #01FF12 "}
-                    src={"intro/bitmoji1.png"}
-                    width={isPhoneScreen ? "200px" : isSmallScreen ? "300px" : isTabletScreen ? "400px" : "500px"}
-                    height="auto"
-                    borderRadius={"full"}
-                    margin={isPhoneScreen ? "0 auto" : isSmallScreen ? "0 auto" : isTabletScreen ? "0 100px" : "0 250px 0 0"}
-                    transition={"transform 0.3s ease-in-out"}
-                    _hover={{
-                        transform: "scale(1.1)"
-                    }}
-                />
-            </Box>
+
+            {/* Image only appears on tablet and larger screens */}
+            {isTabletScreen && (
+                <Box alignItems={"center"} justifyContent={"center"}>
+                    <Image
+                        border={"4px solid #01FF12"}
+                        src={"intro/bitmoji1.png"}
+                        width="500px"
+                        height="auto"
+                        borderRadius={"full"}
+                        margin="0 250px 0 0"
+                        transition={"transform 0.3s ease-in-out"}
+                        _hover={{
+                            transform: "scale(1.1)"
+                        }}
+                    />
+                </Box>
+            )}
         </Box>
     );
 };
