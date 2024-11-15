@@ -47,7 +47,7 @@ const Intro = () => {
                     <Button
                         sx={{
                             ...buttonStyle,
-                            width: "175px",
+                            width: { base: "175px", sm: "130px", md: "150px", lg: "175px" },
                             border: "1px solid #01FF12",
                             backgroundColor: "transparent",
                             _hover: {

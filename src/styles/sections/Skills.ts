@@ -1,6 +1,6 @@
 export const SkillsFlexStyle = {
-    width: "159px",
-    height: "150px",
+    width: { base: "100px", sm: "130px", md: "150px", lg: "159px" },
+    height: { base: "90px", sm: "120px", md: "140px", lg: "150px" },
     backgroundColor: "#1E1E1E",
     borderRadius: "10px",
     justifyContent: "center",
