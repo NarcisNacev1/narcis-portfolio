@@ -18,10 +18,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const Footer = () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     const AnimatedButton = motion(Button);
     const [isWide] = useMediaQuery("(max-width: 995px)");
     const [isMobile] = useMediaQuery("(max-width: 768px)");
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen,  onClose } = useDisclosure();
     const [showScrollButton, setShowScrollButton] = useState(false);
 
     const scrollToSection = (id: string) => {
