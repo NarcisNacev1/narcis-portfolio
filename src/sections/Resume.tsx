@@ -14,6 +14,7 @@ const Resume = () => {
 
     return (
         <Box
+            id={"resume"}
             width={"90%"}
             backgroundColor={"#131313"}
             m={"33px auto"}

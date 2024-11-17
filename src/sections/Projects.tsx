@@ -18,6 +18,7 @@ const Projects = () => {
 
     return (
         <Box
+            id={"projects"}
             width={"90%"}
             backgroundColor={"#131313"}
             m={"50px auto"}
@@ -77,6 +78,9 @@ const Projects = () => {
                                     overflow="hidden"
                                     transition="transform 0.3s ease-in-out"
                                     _hover={{ transform: "scale(1.02)" }}
+                                    maxWidth="1400px" // Set max width for project box
+                                    width="100%" // Adjust the box width
+                                    margin="0 auto" // Center the box
                                 >
                                     <ProjectsBox
                                         type={project.type}
@@ -94,7 +98,7 @@ const Projects = () => {
                 </VStack>
 
                 {/* Show All button positioned at the bottom left of all project boxes */}
-                <Flex justify="left" width="100%" pt={"20px"}>
+                <Flex justify="center" width="100%" pt={"20px"}>
                     <Button
                         onClick={toggleShowAll}
                         color={"#BBB"}
@@ -109,7 +113,7 @@ const Projects = () => {
                         }}
                         size="lg"
                     >
-                        {showAll ? "Show Less" : "Show All"}
+                        {showAll ? "View Less Projects" : "View More Projects"}
                     </Button>
                 </Flex>
             </VStack>

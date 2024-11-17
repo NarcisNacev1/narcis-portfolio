@@ -14,6 +14,7 @@ const AboutMe = () => {
 
     return (
         <Box
+            id={"about"}
             border="0px solid red"
             height="auto"
             width={"80%"}

@@ -8,6 +8,7 @@ const Skills = () => {
 
     return (
         <Box
+            id={"skills"}
             width={"80%"}
             backgroundColor={"#131313"}
             m={"33px auto"}
@@ -23,7 +24,7 @@ const Skills = () => {
                 mt={{ base: "20px", md: "60px" }}
             >
                 <Flex
-                    fontSize={{ base: "1.75rem", md: "2rem", lg: "2.5rem" }}
+                    fontSize={{ base: "1.75rem", md: "2rem", lg: "1.5rem" }}
                     gap={"9px"}
                     letterSpacing={"1.1px"}
                     alignItems="center"
@@ -58,7 +59,7 @@ const Skills = () => {
                     p={{ base: "10px", md: "15px", lg: "0" }}
                     templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" }}
                     justifyContent="centar"
-                    placeItems="center" // Ensures each grid item is centered within its cell
+                    placeItems="center"
 
                 >
                     {skills.map((item) => (

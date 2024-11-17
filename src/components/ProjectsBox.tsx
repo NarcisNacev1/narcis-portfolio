@@ -22,7 +22,6 @@ const ProjectsBox = ({
             mb={5}
             boxShadow="none"
         >
-            {/* Status Badge */}
             <Box
                 position="absolute"
                 top="10px"
@@ -45,10 +44,9 @@ const ProjectsBox = ({
                 width="100%"
                 wrap="wrap"
             >
-                {/* Image Section */}
                 <Box
                     width={{ base: "100%", lg: "45%" }}
-                    height={{ base: "200px", lg: "315px" }} // Set the height explicitly
+                    height={{ base: "200px", lg: "315px" }}
                     position="relative"
                     overflow="hidden"
                     mb={{ base: 4, lg: 0 }}
@@ -64,7 +62,6 @@ const ProjectsBox = ({
                     />
                 </Box>
 
-                {/* Project Details */}
                 <VStack
                     align="left"
                     p={{ base: "10px" }}
@@ -82,14 +79,11 @@ const ProjectsBox = ({
                         </Text>
                     </HStack>
 
-                    {/* Description with no truncation */}
                     <Text fontSize={{ base: "0.875rem", lg: "1rem" }} color="#BBB" whiteSpace="normal" overflow="visible" textOverflow="unset">
                         {description}
                     </Text>
 
-                    {/* Tech Stack and GitHub Button */}
                     <Wrap spacing={2} mt={2} align="center">
-                        {/* Tech Stack Items */}
                         {techStack?.split(",").map((tech, index) => (
                             <WrapItem key={index}>
                                 <Text
@@ -106,10 +100,8 @@ const ProjectsBox = ({
                             </WrapItem>
                         ))}
 
-                        {/* Spacer to push GitHub button to the far right */}
                         <Spacer />
 
-                        {/* GitHub Button */}
                         <WrapItem>
                             <Button
                                 as="a"
