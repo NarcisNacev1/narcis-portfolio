@@ -14,11 +14,15 @@ import {
     useDisclosure,
 } from "@chakra-ui/react";
 import { FiArrowUp } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
+    const AnimatedButton = motion(Button);
     const [isWide] = useMediaQuery("(max-width: 995px)");
     const [isMobile] = useMediaQuery("(max-width: 768px)");
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const [showScrollButton, setShowScrollButton] = useState(false);
 
     const scrollToSection = (id: string) => {
         const section = document.getElementById(id);
@@ -41,6 +45,20 @@ const Footer = () => {
         },
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            // Show the button if scrolled more than 300px from the top
+            setShowScrollButton(window.scrollY > 500);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+
     const buttonStyles = {
         variant: "outline",
         colorScheme: "#BBB",
@@ -55,7 +73,7 @@ const Footer = () => {
 
     return (
         <Box
-            id={"contact"}
+            id="contact"
             as="footer"
             backgroundColor="#131313"
             color="#fff"
@@ -86,17 +104,12 @@ const Footer = () => {
                         Contact Me
                     </Button>
                     <Button
-                        onClick={() => window.location.href = "tel:+38971344010"}
+                        onClick={() => (window.location.href = "tel:+38971344010")}
                         {...buttonStyles}
                     >
                         Call Me
                     </Button>
 
-                    {isWide && (
-                        <Button onClick={onOpen} {...buttonStyles}>
-                            Menu
-                        </Button>
-                    )}
                 </Flex>
 
                 {/* Navigation Links */}
@@ -140,22 +153,31 @@ const Footer = () => {
                 </Drawer>
             </Flex>
 
-            {/* Scroll to Top Button */}
-            <Button
-                onClick={scrollToTop}
-                position="fixed"
-                bottom="20px"
-                right="20px"
-                backgroundColor="#01FF12"
-                color="#fff"
-                borderRadius="50%"
-                boxShadow="0 4px 10px rgba(0, 255, 18, 0.6)"
-                _hover={{
-                    transform: "scale(1.1)",
-                }}
-            >
-                <FiArrowUp size="24px" />
-            </Button>
+            {showScrollButton && (
+                <AnimatedButton
+                    onClick={scrollToTop}
+                    position="fixed"
+                    bottom={isMobile ? "15px" : "20px"}
+                    right={isMobile ? "15px" : "20px"}
+                    zIndex={1000}
+                    backgroundColor="#01FF12"
+                    color="#fff"
+                    borderRadius="50%"
+                    boxShadow="0 4px 10px rgba(0, 255, 18, 0.6)"
+                    _hover={{
+                        transform: "scale(1.1)",
+                    }}
+                    initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, y: 50 }}
+                    transition={{
+                        duration: 0.3,
+                        ease: "easeOut",
+                    }}
+                >
+                    <FiArrowUp size="24px" />
+                </AnimatedButton>
+            )}
         </Box>
     );
 };
