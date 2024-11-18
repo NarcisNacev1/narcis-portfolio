@@ -24,6 +24,15 @@ const Intro = () => {
     const [isTabletScreen] = useMediaQuery("(min-width: 769px)");
     const { isOpen, onOpen, onClose } = useDisclosure();
 
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/intro/cv/NarcisNacevCV.pdf';
+        link.download = 'NarcisNacevCV.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
     return (
         <Box
             id={"home"}
@@ -77,14 +86,7 @@ const Intro = () => {
                     {/* Download Resume Button */}
                     <Button
                         sx={buttonStyle}
-                        onClick={() => {
-                            const link = document.createElement('a');
-                            link.href = '/public/intro/cv/NarcisNacevCV.pdf';
-                            link.download = 'NarcisNacevCV.pdf';
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
-                        }}
+                        onClick={() => handleDownload()}
                     >
                         Download Resume
                     </Button>
