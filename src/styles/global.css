@@ -5,3 +5,8 @@
 html{
     background: #131313;
 }
+
+*{
+    cursor: url('/cursor/cursor.cur'), auto!important;
+    border: 1px solid red!important;
+}

@@ -8,6 +8,7 @@ export const buttonStyle = {
     color: "#FFFFFF",
     marginTop: "20px",
     fontWeight: "normal",
+    cursor: "arrow",
     letterSpacing: "0.48px",
     _hover: {
         backgroundColor: "#01FF12",
@@ -25,7 +26,7 @@ export const iconFlexStyle = {
     _hover: {
         transform: "scale(1.1)"
     },
-    cursor: "pointer",
+    cursor: "arrow",
     transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out',
 }
 

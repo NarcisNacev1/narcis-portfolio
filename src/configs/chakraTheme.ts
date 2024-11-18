@@ -5,15 +5,15 @@ const theme = extendTheme({
         global: {
             body: {
                 bg: "transparent",
-                color: "rgba(255,255,255,0.65)",
-                overflowY: "scroll", // Ensure scrollable content without visible scrollbar
-                "-ms-overflow-style": "none", // Internet Explorer 10+
+                color: "rgba(255, 255, 255, 0.65)",
+                overflowY: "scroll",
+                "-ms-overflow-style": "none",
             },
             html: {
-                scrollbarWidth: "none", // Firefox
+                scrollbarWidth: "none",
             },
             "body::-webkit-scrollbar": {
-                display: "none", // Chrome, Safari, and Opera
+                display: "none",
             },
             "html, body": {
                 scrollBehavior: "smooth",

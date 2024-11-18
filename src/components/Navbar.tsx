@@ -81,7 +81,7 @@ const Navbar = () => {
                             marginLeft="auto"
                             onClick={onOpen}
                             backgroundColor="transparent"
-                            _hover={{ background: "transparent" }}
+                            _hover={{ background: "transparent", cursor: "arrow" }}
                             aria-label="Open Menu"
                         />
                     ) : (
