@@ -117,6 +117,7 @@ const Intro = () => {
                             </ModalBody>
                             <ModalFooter>
                                 <Button
+                                    color={"#FFFFFF"}
                                     sx={{
                                         variant: "outline",
                                         colorScheme: "#BBB",
