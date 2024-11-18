@@ -66,12 +66,10 @@ const AboutMe = () => {
                     </Flex>
                 </Box>
                 <Text color={"#FFFFFF"} width={"100%"} letterSpacing={"0.48px"} mt={"20px"} lineHeight={"2.3"}>
-                    More than 5 years experience in the development of software and
-                    solutions. A conscientious person who pays attention to details. Very
-                    passionate about software development, always willing and ready to
-                    learn new things/concepts. Proven leader with the ability to streamline
-                    development processes to drive the achievement of
-                    organisational objectives.
+                    Although I am relatively new to professional software development,
+                    I bring a solid foundation in backend engineering and hands-on experience from internships.
+                    I am passionate about continuous learning and dedicated to leveraging technology to solve complex challenges.
+                    My focus is on delivering secure, scalable, and impactful solutions that drive meaningful results.
                 </Text>
                 {aboutme.map((item) => (
                     <Box margin={isPhoneScreen || isTabletScreen || isBelow1220px ? "0 auto" : " "}

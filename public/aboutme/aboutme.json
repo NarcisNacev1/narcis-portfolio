@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "content": "Develop highly interactive Front end / User Interfaces for the web"
+    "content": "Develop and optimize backend systems for web applications, ensuring efficient data flow and seamless user interaction."
   },
   {
     "id": 2,
-    "content": "Progressive Web Applications (PWA) in normal and SPA Stacks"
+    "content": "Create and implement Progressive Web Applications (PWA) using modern frameworks, enhancing user experience across devices."
   },
   {
     "id": 3,
-    "content": "Integration of third-party services such as AWS / Digital Ocean"
+    "content": "Integrate third-party services such as cloud platforms (e.g., AWS) and external APIs to improve functionality and scalability."
   },
   {
     "id": 4,
-    "content":  "Integration of payment services such as M-Pesa and PayPal etc"
+    "content": "Collaborate with cross-functional teams to design and implement scalable, secure backend solutions that meet business requirements."
   }
 ]
