@@ -26,8 +26,8 @@ const Intro = () => {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/intro/cv/NarcisNacevCV.pdf';
-        link.download = 'NarcisNacevCV.pdf';
+            link.href = '/intro/cv/EnglishCV.pdf';
+        link.download = 'EnglishCV.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
