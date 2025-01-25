@@ -1,5 +1,35 @@
 [
   {
+    "id": 8,
+    "type": "AI Powered Teaching Assistant for Data Science",
+    "name": "TeachingAssistant",
+    "image": "images/projects/AIAssistent.jpg",
+    "techStack": "OpenAI, Flask, PostgreSQL",
+    "githubLink": "https://github.com/NarcisNacev1/UACS-AI-Powered-Teaching-Assistant-for-Data-Science",
+    "description": "The AI-Powered Teaching Assistant is an API designed to assist students in various courses. It uses OpenAI's language models to answer questions based on course materials, providing real-time interaction and logging. The assistant allows students to submit questions and receive relevant responses, streams responses for an engaging user experience, and logs all interactions for auditing and debugging. It uses .env files for secure configuration, processes course materials to create a vector store, and stores questions and answers in a PostgreSQL database.",
+    "status": "Finished"
+  },
+  {
+    "id": 7,
+    "type": "Matching your Career Opportunities",
+    "name": "NextMatch",
+    "image": "images/projects/NextMatch.jpg",
+    "techStack": "Django, React, PostgreSQL, ScrapingDogAPI",
+    "githubLink": "https://github.com/NarcisNacev1/jobfinder-backend",
+    "description": "Job Finder Backend is a Django REST framework project that manages CV uploads, fetches job data from external APIs, and ranks job positions based on relevance to a user's CV. It allows users to upload their CV in PDF format, extracts skills, education, and experience, and integrates with the ScrapingDog API to fetch job postings. The project uses TF-IDF and cosine similarity for relevance scoring and ensures unique positions for the same company are not duplicated. The frontend of this project uses React.",
+    "status": "Finished"
+  },
+  {
+    "id": 6,
+    "type": "Automated User Real-time Observation and Reporting Assistant",
+    "name": "AURORA",
+    "image": "images/projects/AURORA.jpg",
+    "techStack": "Linux, Bash, Python",
+    "githubLink": "https://github.com/NarcisNacev1/PRISM",
+    "description": "AURORA is a Linux-based system monitoring tool designed for real-time diagnostics, activity tracking, and camera & system snapshots. It ensures critical system data is logged and monitored effectively, providing alerts via email to keep users informed of system anomalies or updates. PRISM includes features like real-time monitoring of CPU, memory, and disk usage, logging of web activity, periodic screenshots and webcam snapshots, and automated email notifications. Additionally, it offers USB automation for seamless execution of monitoring tasks from a USB drive, making it easy to set up and begin monitoring instantly.",
+    "status": "Finished"
+  },
+  {
     "id": 5,
     "type": "Social Media Platform",
     "name": "Scripted",
