@@ -18,7 +18,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const Footer = () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     const AnimatedButton = motion(Button);
     const [isWide] = useMediaQuery("(max-width: 995px)");
@@ -49,7 +48,6 @@ const Footer = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            // Show the button if scrolled more than 300px from the top
             setShowScrollButton(window.scrollY > 500);
         };
 
@@ -69,7 +67,7 @@ const Footer = () => {
             bg: "#01FF12",
             color: "black",
             boxShadow: "0 4px 10px rgba(0, 255, 18, 0.6)",
-            transform: "scale(1.1)", // Scale effect on hover
+            transform: "scale(1.1)",
         },
     };
 
@@ -93,7 +91,6 @@ const Footer = () => {
                 direction={isWide ? "column" : "row"}
                 gap={isMobile ? "20px" : "40px"}
             >
-                {/* Contact Buttons */}
                 <Flex
                     gap="20px"
                     direction={isWide ? "row" : "row"}
@@ -114,7 +111,6 @@ const Footer = () => {
 
                 </Flex>
 
-                {/* Navigation Links */}
                 {!isWide && (
                     <HStack gap="40px">
                         {["home", "about", "resume", "skills", "projects", "contact"].map((id) => (
@@ -129,7 +125,6 @@ const Footer = () => {
                     </HStack>
                 )}
 
-                {/* Drawer for Wide Screens */}
                 <Drawer placement="bottom" onClose={onClose} isOpen={isOpen}>
                     <DrawerOverlay />
                     <DrawerContent backgroundColor="#131313">

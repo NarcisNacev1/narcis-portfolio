@@ -32,7 +32,7 @@ const Projects = () => {
                 alignItems={"center"}
                 justifyContent={"flex-start"}
                 mt={isPhoneScreen || isTabletScreen || isBelow1425 ? "20px" : "10px"}
-                spacing={isBelow1425 ? "20px" : " "} // Adjust spacing for smaller screens
+                spacing={isBelow1425 ? "20px" : " "}
             >
                 <Flex
                     fontSize={isPhoneScreen ? "1.75rem" : isSmallScreen ? "2rem" : isBelow1425 ? "1.5rem" : "1.5rem"}
@@ -78,9 +78,9 @@ const Projects = () => {
                                     overflow="hidden"
                                     transition="transform 0.3s ease-in-out"
                                     _hover={{ transform: "scale(1.02)" }}
-                                    maxWidth="1400px" // Set max width for project box
-                                    width="100%" // Adjust the box width
-                                    margin="0 auto" // Center the box
+                                    maxWidth="1400px"
+                                    width="100%"
+                                    margin="0 auto"
                                 >
                                     <ProjectsBox
                                         type={project.type}
@@ -97,7 +97,6 @@ const Projects = () => {
                     </AnimatePresence>
                 </VStack>
 
-                {/* Show All button positioned at the bottom left of all project boxes */}
                 <Flex justify="center" width="100%" pt={"20px"}>
                     <Button
                         onClick={toggleShowAll}

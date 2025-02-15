@@ -83,7 +83,6 @@ const Intro = () => {
                     Passionate about applying modern technologies to solve real-world problems.
                 </Text>
                 <HStack gap={"15px"}>
-                    {/* Download Resume Button */}
                     <Button
                         sx={buttonStyle}
                         onClick={() => handleDownload()}
@@ -91,7 +90,6 @@ const Intro = () => {
                         Download Resume
                     </Button>
 
-                    {/* Contact Me Button */}
                     <Button
                         sx={{
                             ...buttonStyle,
