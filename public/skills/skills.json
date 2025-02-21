@@ -1,8 +1,8 @@
 [
   {
     "id": 20,
-    "skillName": "C#",
-    "image": "images/skills/charp.png"
+    "skillName": "JavaScript",
+    "image": "images/skills/javascript.png"
   },
   {
     "id": 19,
@@ -76,8 +76,8 @@
   },
   {
     "id": 5,
-    "skillName": "React",
-    "image": "images/skills/react.png"
+    "skillName": "Vue",
+    "image": "images/skills/vuejs.png"
   },
   {
     "id": 4,

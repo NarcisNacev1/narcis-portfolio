@@ -78,8 +78,8 @@ const Intro = () => {
                 </Text>
                 <Text color={"#FFFFFF"} width={isSmallScreen ? "100%" : "43%"} letterSpacing={"0.48px"} mt={"20px"}
                       lineHeight={"2"}>
-                    From Skopje, North Macedonia. I specialize in crafting secure and efficient backend solutions,
-                    with expertise in Python, Django, Flask, and PostgreSQL.
+                    From Skopje, North Macedonia. I specialize in crafting secure and efficient backend & frontend solutions,
+                    with expertise in Django, Flask, Vue js and PostgreSQL.
                     Passionate about applying modern technologies to solve real-world problems.
                 </Text>
                 <HStack gap={"15px"}>

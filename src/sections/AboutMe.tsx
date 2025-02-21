@@ -67,7 +67,7 @@ const AboutMe = () => {
                 </Box>
                 <Text color={"#FFFFFF"} width={"100%"} letterSpacing={"0.48px"} mt={"20px"} lineHeight={"2.3"}>
                     Although I am relatively new to professional software development,
-                    I bring a solid foundation in backend engineering and hands-on experience from internships.
+                    I bring a solid foundation in backend & frontend engineering and hands-on experience from internships.
                     I am passionate about continuous learning and dedicated to leveraging technology to solve complex challenges.
                     My focus is on delivering secure, scalable, and impactful solutions that drive meaningful results.
                 </Text>
