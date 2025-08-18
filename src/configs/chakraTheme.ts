@@ -1,22 +1,22 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
     styles: {
         global: {
             body: {
-                bg: "transparent",
-                color: "rgba(255, 255, 255, 0.65)",
-                overflowY: "scroll",
-                "-ms-overflow-style": "none",
+                bg: 'transparent',
+                color: 'rgba(255, 255, 255, 0.65)',
+                overflowY: 'scroll',
+                '-ms-overflow-style': 'none',
             },
             html: {
-                scrollbarWidth: "none",
+                scrollbarWidth: 'none',
             },
-            "body::-webkit-scrollbar": {
-                display: "none",
+            'body::-webkit-scrollbar': {
+                display: 'none',
             },
-            "html, body": {
-                scrollBehavior: "smooth",
+            'html, body': {
+                scrollBehavior: 'smooth',
             },
         },
     },

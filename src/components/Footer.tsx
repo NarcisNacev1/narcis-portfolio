@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const Footer = () => {
-    // @ts-expect-error
+    // @ts-expect-error error expected
     const AnimatedButton = motion(Button);
     const [isWide] = useMediaQuery("(max-width: 995px)");
     const [isMobile] = useMediaQuery("(max-width: 768px)");
