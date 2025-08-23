@@ -15,74 +15,74 @@ import {
     ModalBody,
     ModalFooter,
     useDisclosure,
-} from "@chakra-ui/react";
-import { FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
-import { buttonStyle, iconFlexStyle, iconStyle } from "../styles/sections/intro.ts";
+} from '@chakra-ui/react';
+import { FiGithub, FiInstagram, FiLinkedin, FiMail } from 'react-icons/fi';
+import { buttonStyle, iconFlexStyle, iconStyle } from '../styles/sections/intro.ts';
 
 const Intro = () => {
-    const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
-    const [isTabletScreen] = useMediaQuery("(min-width: 769px)");
+    const [isSmallScreen] = useMediaQuery('(max-width: 768px)');
+    const [isTabletScreen] = useMediaQuery('(min-width: 769px)');
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const handleDownload = () => {
         const link = document.createElement('a');
-            link.href = '/intro/cv/EnglishCV.pdf';
+        link.href = '/intro/cv/EnglishCV.pdf';
         link.download = 'EnglishCV.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-    }
+    };
 
     return (
         <Box
-            id={"home"}
+            id={'home'}
             border="0px solid red"
-            height={isSmallScreen ? "auto" : "600.5px"}
-            width={"80%"}
-            backgroundColor={"#131313"}
-            m={"100px auto"}
-            p={isSmallScreen ? "20px" : "0"}
-            display={"flex"}
-            flexDirection={isSmallScreen ? "column" : "row"}
-            gap={isSmallScreen ? "50px" : "150px"}
-            alignItems={"center"}
+            height={isSmallScreen ? 'auto' : '600.5px'}
+            width={'80%'}
+            backgroundColor={'#131313'}
+            m={'100px auto'}
+            p={isSmallScreen ? '20px' : '0'}
+            display={'flex'}
+            flexDirection={isSmallScreen ? 'column' : 'row'}
+            gap={isSmallScreen ? '50px' : '150px'}
+            alignItems={'center'}
         >
             {isSmallScreen && (
                 <Image
-                    border={"4px solid #01FF12"}
-                    src={"intro/bitmoji1.png"}
+                    border={'4px solid #01FF12'}
+                    src={'intro/bitmoji1.png'}
                     width="300px"
                     height="auto"
-                    borderRadius={"full"}
+                    borderRadius={'full'}
                     margin="0 auto"
-                    transition={"transform 0.3s ease-in-out"}
+                    transition={'transform 0.3s ease-in-out'}
                     _hover={{
-                        transform: "scale(1.1)",
+                        transform: 'scale(1.1)',
                     }}
                 />
             )}
 
-            <VStack alignItems={isSmallScreen ? "center" : "left"} textAlign={isSmallScreen ? "center" : "left"}>
+            <VStack alignItems={isSmallScreen ? 'center' : 'left'} textAlign={isSmallScreen ? 'center' : 'left'}>
                 <Text
-                    textTransform={"uppercase"}
-                    fontSize={"1.25rem"}
-                    letterSpacing={"1.28px"}
+                    textTransform={'uppercase'}
+                    fontSize={'1.25rem'}
+                    letterSpacing={'1.28px'}
                 >
                     hello, my name is
                 </Text>
-                <Flex fontSize={isSmallScreen ? "2.5rem" : "4rem"} gap={"24px"} letterSpacing={"1.28px"}>
-                    <Text color={"#01FF12"}>Narcis</Text><Text color={"#FFFFFF"}>Nacev</Text>
+                <Flex fontSize={isSmallScreen ? '2.5rem' : '4rem'} gap={'24px'} letterSpacing={'1.28px'}>
+                    <Text color={'#01FF12'}>Narcis</Text><Text color={'#FFFFFF'}>Nacev</Text>
                 </Flex>
-                <Text fontSize={isSmallScreen ? "1.5rem" : "1.5rem"} letterSpacing={"1.28px"} fontWeight={"normal"}>
+                <Text fontSize={isSmallScreen ? '1.5rem' : '1.5rem'} letterSpacing={'1.28px'} fontWeight={'normal'}>
                     Software Engineer
                 </Text>
-                <Text color={"#FFFFFF"} width={isSmallScreen ? "100%" : "43%"} letterSpacing={"0.48px"} mt={"20px"}
-                      lineHeight={"2"}>
+                <Text color={'#FFFFFF'} width={isSmallScreen ? '100%' : '43%'} letterSpacing={'0.48px'} mt={'20px'}
+                    lineHeight={'2'}>
                     From Skopje, North Macedonia. I specialize in crafting secure and efficient backend & frontend solutions,
                     with expertise in Django, Flask, Vue js and PostgreSQL.
                     Passionate about applying modern technologies to solve real-world problems.
                 </Text>
-                <HStack gap={"15px"}>
+                <HStack gap={'15px'}>
                     <Button
                         sx={buttonStyle}
                         onClick={() => handleDownload()}
@@ -93,12 +93,12 @@ const Intro = () => {
                     <Button
                         sx={{
                             ...buttonStyle,
-                            width: { base: "135px", sm: "130px", md: "150px", lg: "175px" },
-                            border: "1px solid #01FF12",
-                            backgroundColor: "transparent",
+                            width: { base: '135px', sm: '130px', md: '150px', lg: '175px' },
+                            border: '1px solid #01FF12',
+                            backgroundColor: 'transparent',
                             _hover: {
-                                backgroundColor: "transparent",
-                                transform: "scale(1.1)",
+                                backgroundColor: 'transparent',
+                                transform: 'scale(1.1)',
                             },
                         }}
                         onClick={onOpen}
@@ -112,26 +112,26 @@ const Intro = () => {
                             <ModalHeader>Contact Me</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                                <p>Email: <a href="mailto:narcis.karanfilov@gmail.com" style={{ color: "#01FF12" }}>narcis.karanfilov@gmail.com</a></p>
-                                <p>Phone: <a href="tel:+38971344010" style={{ color: "#01FF12" }}>+389 71 344 010</a></p>
+                                <p>Email: <a href="mailto:narcis.karanfilov@gmail.com" style={{ color: '#01FF12' }}>narcis.karanfilov@gmail.com</a></p>
+                                <p>Phone: <a href="tel:+38971344010" style={{ color: '#01FF12' }}>+389 71 344 010</a></p>
                             </ModalBody>
                             <ModalFooter>
                                 <Button
-                                    color={"#FFFFFF"}
+                                    color={'#FFFFFF'}
                                     sx={{
-                                        variant: "outline",
-                                        colorScheme: "#BBB",
-                                        border: "1px solid #01FF12",
-                                        backgroundColor: "transparent",
-                                        transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+                                        variant: 'outline',
+                                        colorScheme: '#BBB',
+                                        border: '1px solid #01FF12',
+                                        backgroundColor: 'transparent',
+                                        transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                                         _hover: {
-                                            backgroundColor: "#01FF12",
-                                            color: "black",
-                                            boxShadow: "0 4px 10px rgba(0, 255, 18, 0.6)",
-                                            transform: "scale(1.1)",
+                                            backgroundColor: '#01FF12',
+                                            color: 'black',
+                                            boxShadow: '0 4px 10px rgba(0, 255, 18, 0.6)',
+                                            transform: 'scale(1.1)',
                                         },
                                         _focus: {
-                                            boxShadow: "0 0 8px rgba(0, 255, 18, 0.6)",
+                                            boxShadow: '0 0 8px rgba(0, 255, 18, 0.6)',
                                         },
                                     }}
                                     onClick={onClose}
@@ -144,7 +144,7 @@ const Intro = () => {
 
                 </HStack>
 
-                <HStack gap={"20px"}>
+                <HStack gap={'20px'}>
                     <Flex sx={iconFlexStyle} as="a" href="https://github.com/NarcisNacev1" target="_blank">
                         <FiGithub style={iconStyle} />
                     </Flex>
@@ -161,17 +161,17 @@ const Intro = () => {
             </VStack>
 
             {isTabletScreen && (
-                <Box alignItems={"center"} justifyContent={"center"}>
+                <Box alignItems={'center'} justifyContent={'center'}>
                     <Image
-                        border={"4px solid #01FF12"}
-                        src={"intro/bitmoji1.png"}
+                        border={'4px solid #01FF12'}
+                        src={'intro/bitmoji1.png'}
                         width="500px"
                         height="auto"
-                        borderRadius={"full"}
+                        borderRadius={'full'}
                         margin="0 250px 0 0"
-                        transition={"transform 0.3s ease-in-out"}
+                        transition={'transform 0.3s ease-in-out'}
                         _hover={{
-                            transform: "scale(1.1)",
+                            transform: 'scale(1.1)',
                         }}
                     />
                 </Box>

@@ -1,4 +1,4 @@
 export interface IAboutInterface {
-    id:number,
-    content:string
+    id: number;
+    content: string;
 }
