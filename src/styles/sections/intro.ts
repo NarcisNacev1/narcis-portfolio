@@ -4,14 +4,14 @@ export const buttonStyle = {
     p: '0',
     borderRadius: '10px',
     fontSize: '1.25rem',
-    backgroundColor: '#01FF12',
+    backgroundColor: '#FF00CC',
     color: '#FFFFFF',
     marginTop: '20px',
     fontWeight: 'normal',
     cursor: 'arrow',
     letterSpacing: '0.48px',
     _hover: {
-        backgroundColor: '#01FF12',
+        backgroundColor: '#FF00CC',
         transform: 'scale(1.1)',
     },
 };
@@ -32,6 +32,6 @@ export const iconFlexStyle = {
 
 export const iconStyle = {
     size: '22px',
-    color:'#01FF12',
+    color:'#FF00CC',
     transition: 'color 0.3s ease-in-out',
 };

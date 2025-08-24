@@ -74,7 +74,7 @@ const ProjectsBox = ({
                     </Text>
 
                     <HStack width={'100%'}>
-                        <Text fontSize={{ base: '1rem', lg: '1.25rem' }} color="#01FF12">
+                        <Text fontSize={{ base: '1rem', lg: '1.25rem' }} color="#FF00CC">
                             {type}
                         </Text>
                     </HStack>
@@ -112,7 +112,7 @@ const ProjectsBox = ({
                                 colorScheme="gray"
                                 size="sm"
                                 _hover={{
-                                    bg: '#01FF12',
+                                    bg: '#FF00CC',
                                     color: 'black',
                                     boxShadow: 'none',
                                 }}

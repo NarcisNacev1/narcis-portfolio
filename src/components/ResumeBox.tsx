@@ -15,11 +15,11 @@ const ResumeBox = ({
 
     return (
         <Box
-            border={'1px solid #01FF12'}
+            border={'1px solid #FF00CC'}
             borderLeft={'none'}
             width={{ base: '100%', sm: '90%', md: '80%', lg: '615px' }}
             p={'15px 0'}
-            textShadow="0px 0px 3px #01FF12, 1px 1px 2px #01FF12"
+            textShadow="0px 0px 3px #FF00CC, 1px 1px 2px #FF00CC"
             color={'#FFFFFF'}
             position={'relative'}
             height={'fit-content'}
@@ -34,7 +34,7 @@ const ResumeBox = ({
                     backgroundColor={'#131313'}
                     width={'55px'}
                     height={'55px'}
-                    border={'1px solid #01FF12'}
+                    border={'1px solid #FF00CC'}
                     borderRadius={'full'}
                     justifyContent={'center'}
                     alignItems={'center'}
@@ -46,9 +46,9 @@ const ResumeBox = ({
                 >
                     <Box width={'100%'} height={'100%'}>
                         {isOpen ? (
-                            <FiMinus color={'#01FF12'} fontSize={'1.6rem'} style={{ height: '100%', margin: '0 auto' }} />
+                            <FiMinus color={'#FF00CC'} fontSize={'1.6rem'} style={{ height: '100%', margin: '0 auto' }} />
                         ) : (
-                            <FiPlus color={'#01FF12'} fontSize={'1.6rem'} style={{ height: '100%', margin: '0 auto' }} />
+                            <FiPlus color={'#FF00CC'} fontSize={'1.6rem'} style={{ height: '100%', margin: '0 auto' }} />
                         )}
                     </Box>
                 </Box>

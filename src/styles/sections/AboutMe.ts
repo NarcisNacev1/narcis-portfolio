@@ -2,7 +2,7 @@ export const AboutMeIconFlexStyle = {
     boxSize: '20px',
     backgroundColor: 'transparent',
     borderRadius: '0px',
-    color: '#01FF12',
+    color: '#FF00CC',
     alignItems: 'center',
     justifyContent: 'left',
     marginTop: '15px',

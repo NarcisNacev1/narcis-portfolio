@@ -28,7 +28,7 @@ const Footer = () => {
         transition: 'transform 0.3s ease-in-out',
         _hover: {
             transform: 'scale(1.1)',
-            color: '#01FF12',
+            color: '#FF00CC',
         },
     };
 
@@ -49,7 +49,7 @@ const Footer = () => {
         colorScheme: '#BBB',
         transition: 'transform 0.3s ease-in-out',
         _hover: {
-            bg: '#01FF12',
+            bg: '#FF00CC',
             color: 'black',
             boxShadow: '0 4px 10px rgba(0, 255, 18, 0.6)',
             transform: 'scale(1.1)',
@@ -60,7 +60,6 @@ const Footer = () => {
         <Box
             id="contact"
             as="footer"
-            backgroundColor="#131313"
             color="#fff"
             padding="40px 20px"
             boxShadow="0 -4px 8px rgba(0, 0, 0, 0.2)"
@@ -114,7 +113,7 @@ const Footer = () => {
                     <DrawerOverlay />
                     <DrawerContent backgroundColor="#131313">
                         <DrawerCloseButton />
-                        <DrawerHeader color="#01FF12">Menu</DrawerHeader>
+                        <DrawerHeader color="#FF00CC">Menu</DrawerHeader>
                         <DrawerBody>
                             <HStack justify="center" spacing="24px">
                                 {['home', 'about', 'resume', 'skills', 'projects', 'contact'].map((id) => (
@@ -142,7 +141,7 @@ const Footer = () => {
                     bottom={isMobile ? '15px' : '20px'}
                     right={isMobile ? '15px' : '20px'}
                     zIndex={1000}
-                    backgroundColor="#01FF12"
+                    backgroundColor="#FF00CC"
                     color="#fff"
                     borderRadius="50%"
                     boxShadow="0 4px 10px rgba(0, 255, 18, 0.6)"

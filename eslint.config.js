@@ -42,5 +42,5 @@ export default tseslint.config(
             'no-trailing-spaces': ['error', { skipBlankLines: false, ignoreComments: false }],
             'comma-dangle': ['error', 'always-multiline'],
         },
-    }
+    },
 );

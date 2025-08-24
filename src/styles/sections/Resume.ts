@@ -1,7 +1,7 @@
 export const ResumeIconFlexStyle = {
     backgroundColor: '#131313',
     borderRadius: 'full',
-    color: '#01FF12',
+    color: '#FF00CC',
     _hover: {
         transform: 'scale(1.2)',
     },
@@ -10,7 +10,7 @@ export const ResumeIconFlexStyle = {
 };
 
 export const presentStyles = {
-    color: '#01FF12',
+    color: '#FF00CC',
     fontWeight: 'bold',
     textShadow: 'none',
     marginLeft: '0px',

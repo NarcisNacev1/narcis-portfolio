@@ -1,8 +1,8 @@
 export interface IProjectsBox {
     type?: string;
-    name?: string;
+    name: string;
     image?: string;
-    techStack?: string;
+    techStack: string;
     githubLink?: string;
     description?: string;
     status?: string;

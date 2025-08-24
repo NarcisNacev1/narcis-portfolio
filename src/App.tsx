@@ -6,11 +6,13 @@ import Resume from './sections/Resume.tsx';
 import Skills from './sections/Skills.tsx';
 import Projects from './sections/Projects.tsx';
 import Footer from './components/Footer.tsx';
+import VantaBackground from './styles/background/VantaBackground.tsx';
 
 function App () {
 
     return (
         <>
+            <VantaBackground />
             <Navbar />
             <Intro/>
             <AboutMe/>

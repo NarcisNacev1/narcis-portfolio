@@ -1,28 +1,45 @@
-import {
-    Box,
-    Button,
-    Flex,
-    HStack,
-    Image,
-    Text,
-    VStack,
-    useMediaQuery,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalCloseButton,
-    ModalBody,
-    ModalFooter,
-    useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, HStack, Text, VStack, useMediaQuery, useDisclosure } from '@chakra-ui/react';
+import { Canvas, useLoader } from '@react-three/fiber';
+import { OrbitControls, Html, Sparkles } from '@react-three/drei';
 import { FiGithub, FiInstagram, FiLinkedin, FiMail } from 'react-icons/fi';
 import { buttonStyle, iconFlexStyle, iconStyle } from '../styles/sections/intro.ts';
+import { Avatar } from '../components/Avatar.tsx';
+import { Suspense, useState } from 'react';
+import { TextureLoader } from 'three';
+import * as THREE from 'three';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.3,
+        },
+    },
+};
+
+const floatVariant = {
+    float: {
+        y: [0, -10, 0],
+        transition: {
+            duration: 2,
+            repeat: Infinity,
+            repeatType: 'mirror',
+            ease: 'easeInOut',
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
 
 const Intro = () => {
     const [isSmallScreen] = useMediaQuery('(max-width: 768px)');
     const [isTabletScreen] = useMediaQuery('(min-width: 769px)');
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { onOpen } = useDisclosure();
 
     const handleDownload = () => {
         const link = document.createElement('a');
@@ -33,13 +50,130 @@ const Intro = () => {
         document.body.removeChild(link);
     };
 
+    const AvatarCanvas = ({ width, height }: { width: string; height: string }) => {
+        const [use3D, setUse3D] = useState(true);
+
+        const grassTopTexture = useLoader(TextureLoader, '/textures/endstone1.png');
+        const dirtTexture = useLoader(TextureLoader, '/textures/endstone.png');
+
+        grassTopTexture.wrapS = grassTopTexture.wrapT = THREE.RepeatWrapping;
+        grassTopTexture.repeat.set(1,1);
+        grassTopTexture.magFilter = THREE.NearestFilter;
+        grassTopTexture.minFilter = THREE.NearestFilter;
+
+        dirtTexture.wrapS = dirtTexture.wrapT = THREE.RepeatWrapping;
+        dirtTexture.repeat.set(1, 0.1);
+        dirtTexture.magFilter = THREE.NearestFilter;
+        dirtTexture.minFilter = THREE.NearestFilter;
+
+        if (!use3D) {
+            return (
+                <img
+                    src={'intro/bitmoji1.png'}
+                    width={width}
+                    height={height}
+                    style={{
+                        border: '4px solid #FF00CC',
+                        borderRadius: '50%',
+                        transition: 'transform 0.3s ease-in-out',
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                />
+            );
+        }
+
+        return (
+            <Box
+                width={width}
+                height={height}
+                overflow={'hidden'}
+                borderRadius="full"
+                transition={'transform 0.3s ease-in-out'}
+                _hover={{
+                    transform: 'scale(1.1)',
+                }}
+            >
+                <Canvas shadows
+                    camera={{
+                        position: [0, 0, 4],
+                        fov: 35,
+                    }}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                    }}
+                    onError={() => {
+                        console.error('3D Canvas error, falling back to image');
+                        setUse3D(false);
+                    }}
+                >
+                    <ambientLight intensity={0.6} />
+                    <directionalLight position={[2, 5, 3]} intensity={0.8} castShadow />
+                    <pointLight position={[-2, 2, 2]} intensity={0.3} />
+
+                    <Suspense fallback={
+                        <Html center>
+                            <div style={{ color: '#FF00CC', fontSize: '14px', fontFamily: "'Pacifico', cursive" }}>Loading...</div>
+                        </Html>
+                    }>
+                        <Sparkles
+                            count={50}
+                            scale={2}
+                            size={1.5}
+                            speed={0.4}
+                            color="#FF00CC"
+                            position={[0, 0, 0]}
+                        />
+
+                        <Html position={[0, 1.5, 0]} center>
+                            <Text fontSize="1.5rem" color="#FF00CC">Narcis Nacev</Text>
+                        </Html>
+
+                        <Html position={[0, -2.2, 0]} center>
+                            <Button onClick={handleDownload} sx={buttonStyle}>Download Resume</Button>
+                        </Html>
+
+                        <group position={[0, -0.95, 0]}>
+                            <mesh position={[0, 0.02, 0]} castShadow receiveShadow>
+                                <cylinderGeometry args={[0.8, 0.4, 0.2, 32]} />
+                                <meshStandardMaterial
+                                    map={dirtTexture}
+                                    roughness={0.8}
+                                    metalness={0}
+                                />
+                            </mesh>
+
+                            <mesh position={[0, 0.125, 0]} castShadow receiveShadow>
+                                <cylinderGeometry args={[0.8, 0.8, 0.005, 32]} />
+                                <meshStandardMaterial
+                                    map={grassTopTexture}
+                                    roughness={0.8}
+                                    metalness={0}
+                                />
+                            </mesh>
+
+                            <Avatar position={[0, 0.15, 0]} scale={0.9} rotation={[0, 0, 0]} />
+                        </group>
+                    </Suspense>
+
+                    <OrbitControls
+                        enableZoom={false}
+                        enablePan={false}
+                        maxPolarAngle={Math.PI / 1.8}
+                        minPolarAngle={Math.PI / 3}
+                        target={[0, 0, 0]}
+                    />
+                </Canvas>
+            </Box>
+        );
+    };
+
     return (
         <Box
             id={'home'}
-            border="0px solid red"
             height={isSmallScreen ? 'auto' : '600.5px'}
             width={'80%'}
-            backgroundColor={'#131313'}
             m={'100px auto'}
             p={isSmallScreen ? '20px' : '0'}
             display={'flex'}
@@ -48,43 +182,68 @@ const Intro = () => {
             alignItems={'center'}
         >
             {isSmallScreen && (
-                <Image
-                    border={'4px solid #01FF12'}
-                    src={'intro/bitmoji1.png'}
-                    width="300px"
-                    height="auto"
-                    borderRadius={'full'}
-                    margin="0 auto"
-                    transition={'transform 0.3s ease-in-out'}
-                    _hover={{
-                        transform: 'scale(1.1)',
-                    }}
-                />
+                <AvatarCanvas width="1000px" height="1000px" />
             )}
 
-            <VStack alignItems={isSmallScreen ? 'center' : 'left'} textAlign={isSmallScreen ? 'center' : 'left'}>
+            <VStack
+                as={motion.div}
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                alignItems={isSmallScreen ? 'center' : 'left'}
+                textAlign={isSmallScreen ? 'center' : 'left'}
+            >
                 <Text
-                    textTransform={'uppercase'}
-                    fontSize={'1.25rem'}
-                    letterSpacing={'1.28px'}
+                    as={motion.p}
+                    variants={itemVariants}
+                    textTransform="uppercase"
+                    fontSize="1.25rem"
+                    letterSpacing="1.28px"
                 >
                     hello, my name is
                 </Text>
-                <Flex fontSize={isSmallScreen ? '2.5rem' : '4rem'} gap={'24px'} letterSpacing={'1.28px'}>
-                    <Text color={'#01FF12'}>Narcis</Text><Text color={'#FFFFFF'}>Nacev</Text>
+
+                <Flex
+                    as={motion.div}
+                    variants={itemVariants}
+                    fontSize={isSmallScreen ? '2.5rem' : '4rem'}
+                    gap="24px"
+                    fontFamily="'Pacifico', cursive"
+                    letterSpacing="1.28px"
+                >
+                    <Text color="#FF00CC">Narcis</Text>
+                    <Text color="#FFFFFF">Nacev</Text>
                 </Flex>
-                <Text fontSize={isSmallScreen ? '1.5rem' : '1.5rem'} letterSpacing={'1.28px'} fontWeight={'normal'}>
+
+                <Text
+                    as={motion.p}
+                    variants={itemVariants}
+                    fontSize="1.5rem"
+                    letterSpacing="1.28px"
+                    fontWeight="normal"
+                >
                     Software Engineer
                 </Text>
-                <Text color={'#FFFFFF'} width={isSmallScreen ? '100%' : '43%'} letterSpacing={'0.48px'} mt={'20px'}
-                    lineHeight={'2'}>
+
+                <Text
+                    as={motion.p}
+                    variants={itemVariants}
+                    color="#FFFFFF"
+                    width={isSmallScreen ? '100%' : '43%'}
+                    letterSpacing="0.48px"
+                    mt="20px"
+                    lineHeight="2"
+                >
                     From Skopje, North Macedonia. I specialize in crafting secure and efficient backend & frontend solutions,
                     with expertise in Django, Flask, Vue js and PostgreSQL.
                     Passionate about applying modern technologies to solve real-world problems.
                 </Text>
-                <HStack gap={'15px'}>
+
+                <HStack as={motion.div} variants={itemVariants} gap="15px">
                     <Button
                         sx={buttonStyle}
+                        fontFamily="'Pacifico', cursive"
                         onClick={() => handleDownload()}
                     >
                         Download Resume
@@ -94,57 +253,18 @@ const Intro = () => {
                         sx={{
                             ...buttonStyle,
                             width: { base: '135px', sm: '130px', md: '150px', lg: '175px' },
-                            border: '1px solid #01FF12',
+                            border: '1px solid #FF00CC',
                             backgroundColor: 'transparent',
-                            _hover: {
-                                backgroundColor: 'transparent',
-                                transform: 'scale(1.1)',
-                            },
+                            _hover: { backgroundColor: 'transparent', transform: 'scale(1.1)' },
                         }}
+                        fontFamily="'Pacifico', cursive"
                         onClick={onOpen}
                     >
                         Contact Me
                     </Button>
-
-                    <Modal isOpen={isOpen} onClose={onClose}>
-                        <ModalOverlay />
-                        <ModalContent backgroundColor="#131313" color="#fff">
-                            <ModalHeader>Contact Me</ModalHeader>
-                            <ModalCloseButton />
-                            <ModalBody>
-                                <p>Email: <a href="mailto:narcis.karanfilov@gmail.com" style={{ color: '#01FF12' }}>narcis.karanfilov@gmail.com</a></p>
-                                <p>Phone: <a href="tel:+38971344010" style={{ color: '#01FF12' }}>+389 71 344 010</a></p>
-                            </ModalBody>
-                            <ModalFooter>
-                                <Button
-                                    color={'#FFFFFF'}
-                                    sx={{
-                                        variant: 'outline',
-                                        colorScheme: '#BBB',
-                                        border: '1px solid #01FF12',
-                                        backgroundColor: 'transparent',
-                                        transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                                        _hover: {
-                                            backgroundColor: '#01FF12',
-                                            color: 'black',
-                                            boxShadow: '0 4px 10px rgba(0, 255, 18, 0.6)',
-                                            transform: 'scale(1.1)',
-                                        },
-                                        _focus: {
-                                            boxShadow: '0 0 8px rgba(0, 255, 18, 0.6)',
-                                        },
-                                    }}
-                                    onClick={onClose}
-                                >
-                                    Close
-                                </Button>
-                            </ModalFooter>
-                        </ModalContent>
-                    </Modal>
-
                 </HStack>
 
-                <HStack gap={'20px'}>
+                <HStack as={motion.div} variants={itemVariants} gap="20px">
                     <Flex sx={iconFlexStyle} as="a" href="https://github.com/NarcisNacev1" target="_blank">
                         <FiGithub style={iconStyle} />
                     </Flex>
@@ -162,18 +282,9 @@ const Intro = () => {
 
             {isTabletScreen && (
                 <Box alignItems={'center'} justifyContent={'center'}>
-                    <Image
-                        border={'4px solid #01FF12'}
-                        src={'intro/bitmoji1.png'}
-                        width="500px"
-                        height="auto"
-                        borderRadius={'full'}
-                        margin="0 250px 0 0"
-                        transition={'transform 0.3s ease-in-out'}
-                        _hover={{
-                            transform: 'scale(1.1)',
-                        }}
-                    />
+                    <motion.div variants={floatVariant} animate="float">
+                        <AvatarCanvas width="500px" height="800px" />
+                    </motion.div>
                 </Box>
             )}
         </Box>
