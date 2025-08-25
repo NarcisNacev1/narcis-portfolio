@@ -20,6 +20,23 @@ function App () {
                 outerAlpha={0.4}
                 innerScale={0.7}
                 outerScale={2}
+                clickables={[
+                    'a',
+                    'button',
+                    'input',
+                    'textarea',
+                    'select',
+                    'label',
+                    '.chakra-button',
+                    '.chakra-link',
+                    '.chakra-modal__content',
+                    '.chakra-drawer__content',
+                    '[role="dialog"]',
+                    '[role="button"]',
+                    '[role="menu"]',
+                ]}
+                outerStyle={{ pointerEvents: 'none' }}
+                innerStyle={{ pointerEvents: 'none' }}
             />
             <VantaBackground />
             <Navbar />

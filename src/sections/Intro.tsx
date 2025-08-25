@@ -39,7 +39,6 @@ const itemVariants = {
 const Intro = () => {
     const [isSmallScreen] = useMediaQuery('(max-width: 768px)');
     const [isTabletScreen] = useMediaQuery('(min-width: 769px)');
-    const { onOpen } = useDisclosure();
 
     const handleDownload = () => {
         const link = document.createElement('a');
@@ -182,7 +181,7 @@ const Intro = () => {
             alignItems={'center'}
         >
             {isSmallScreen && (
-                <AvatarCanvas width="1000px" height="1000px" />
+                <AvatarCanvas width="500px" height="500px" />
             )}
 
             <VStack
@@ -258,7 +257,7 @@ const Intro = () => {
                             _hover: { backgroundColor: 'transparent', transform: 'scale(1.1)' },
                         }}
                         fontFamily="'Pacifico', cursive"
-                        onClick={onOpen}
+                        onClick={() => window.open('mailto:narcis.karanfilov@gmail.com')}
                     >
                         Contact Me
                     </Button>

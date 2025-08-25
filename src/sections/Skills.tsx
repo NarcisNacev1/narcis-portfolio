@@ -31,7 +31,6 @@ const Skills = () => {
     return (
         <Box id="skills" width="80%" m="33px auto" display="flex" flexDirection="column" justifyContent="center" p={{ base: '15px', md: '0' }}>
             <VStack width="100%" alignItems="center" justifyContent="flex-start" mt={{ base: '20px', md: '60px' }}>
-                {/* Title */}
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={headingVariant}>
                     <Flex fontSize={{ base: '1.75rem', md: '2rem' }} gap="9px" alignItems="center" justifyContent="center" mb="10px" fontWeight="regular" fontFamily="'Pacifico', cursive">
                         <Text color="#FFFFFF">My</Text>
@@ -45,7 +44,6 @@ const Skills = () => {
                     </Flex>
                 </motion.div>
 
-                {/* Skills Grid */}
                 <Grid
                     mt="40px"
                     templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)', lg: 'repeat(5, 1fr)' }}

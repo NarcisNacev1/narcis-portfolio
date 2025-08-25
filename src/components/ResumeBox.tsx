@@ -40,7 +40,6 @@ const ResumeBox = ({
                     alignItems={'center'}
                     sx={ResumeIconFlexStyle}
                     onClick={onToggle}
-                    cursor={'pointer'}
                     transition="transform 0.3s ease"
                     transform={`rotate(${rotationDegree}deg)`}
                 >

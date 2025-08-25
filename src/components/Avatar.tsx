@@ -91,6 +91,7 @@ export function Avatar (props: JSX.IntrinsicElements['group']) {
     const { animations: standingAnim } = useFBX('animations/StandingUp.fbx');
     const { animations: idleAnim } = useFBX('animations/BreathingIdle.fbx');
     const { animations: lookingAroundAnim } = useFBX('animations/LookingAround.fbx');
+    const { animations: pointingAnim } = useFBX('animations/Pointing.fbx');
 
     const allAnimations = React.useMemo(() => {
         const result: THREE.AnimationClip[] = [];
@@ -114,8 +115,14 @@ export function Avatar (props: JSX.IntrinsicElements['group']) {
             result.push(clip);
         }
 
+        if (pointingAnim[0] && skeleton) {
+            const clickClip = remapAnimationTracks(pointingAnim[0], skeleton);
+            clickClip.name = 'Bow';
+            result.push(clickClip);
+        }
+
         return result;
-    }, [nodes.Wolf3D_Body?.skeleton, standingAnim, lookingAroundAnim, idleAnim]);
+    }, [nodes.Wolf3D_Body?.skeleton, standingAnim, lookingAroundAnim, idleAnim, pointingAnim]);
 
     const { actions, mixer } = useAnimations(allAnimations, group);
 
@@ -144,8 +151,34 @@ export function Avatar (props: JSX.IntrinsicElements['group']) {
         }
     }, [actions, mixer]);
 
+    const handleClick = () => {
+        const pointingAction = actions['Bow'];
+        const idleAction = actions['BreathingIdle'];
+
+        if (!pointingAction || !idleAction) return;
+
+        pointingAction.stop();
+        idleAction.stop();
+
+        pointingAction.reset();
+        pointingAction.setLoop(THREE.LoopOnce, 1);
+        pointingAction.clampWhenFinished = false;
+        pointingAction.fadeIn(0.1).play();
+
+        const onFinish = (e: any) => {
+            if (e.action === pointingAction) {
+                idleAction.reset();
+                idleAction.setLoop(THREE.LoopRepeat, Infinity);
+                idleAction.fadeIn(0.2).play();
+                mixer.removeEventListener('finished', onFinish);
+            }
+        };
+
+        mixer.addEventListener('finished', onFinish);
+    };
+
     return (
-        <group {...props} ref={group} dispose={null}>
+        <group {...props} ref={group} dispose={null} onClick={handleClick}>
             <primitive object={nodes.Hips} />
             <skinnedMesh geometry={nodes.Wolf3D_Hair.geometry} material={materials.Wolf3D_Hair} skeleton={nodes.Wolf3D_Hair.skeleton} />
             <skinnedMesh geometry={nodes.Wolf3D_Outfit_Top.geometry} material={materials.Wolf3D_Outfit_Top} skeleton={nodes.Wolf3D_Outfit_Top.skeleton} />

@@ -13,10 +13,20 @@ const navbarVariants = {
     },
 };
 
+const menuVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: (i: number) => ({
+        opacity: 1,
+        x: 0,
+        transition: { delay: i * 0.1, type: 'spring', stiffness: 100 },
+    }),
+};
+
 const Navbar = () => {
     const [is1400wide] = useMediaQuery('(max-width: 1400px)');
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [isVisible, setIsVisible] = useState(true);
+    const [isSmallScreen] = useMediaQuery('(max-width: 768px)');
     const [lastScrollY, setLastScrollY] = useState(0);
 
     const handleScroll = () => {
@@ -48,7 +58,7 @@ const Navbar = () => {
                 style={{
                     position: 'fixed',
                     top: '20px',
-                    left: '30%',
+                    left: isSmallScreen ? '20%' : '30%',
                     transform: 'translateX(-70%)',
                     width: 'auto',
                     padding: '0 32px',
@@ -86,7 +96,7 @@ const Navbar = () => {
                             fontSize="1.5rem"
                             onClick={onOpen}
                             background="transparent"
-                            _hover={{ background: 'transparent', cursor: 'pointer' }}
+                            _hover={{ background: 'transparent' }}
                             aria-label="Open Menu"
                         />
                     ) : (
@@ -103,33 +113,54 @@ const Navbar = () => {
             </motion.div>
             <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
-                <DrawerContent backgroundColor="#131313">
-                    <DrawerCloseButton />
-                    <DrawerHeader color="#FF00CC">Menu</DrawerHeader>
+                <DrawerContent
+                    background="linear-gradient(180deg, #131313 0%, #1E1E1E 100%)"
+                    borderLeft="1px solid rgba(255,255,255,0.1)"
+                >
+                    <DrawerCloseButton _focus={{ boxShadow: 'none' }} />
+                    <DrawerHeader
+                        color="#FF00CC"
+                        fontSize="1.8rem"
+                        fontFamily="'Pacifico', cursive"
+                    >
+                        Menu
+                    </DrawerHeader>
                     <DrawerBody>
-                        <VStack align="start" spacing="24px">
-                            <Text sx={navLinks} onClick={() => { scrollToSection('home'); onClose(); }}>
-                                Home
-                            </Text>
-                            <Text sx={navLinks} onClick={() => { scrollToSection('about'); onClose(); }}>
-                                About
-                            </Text>
-                            <Text sx={navLinks} onClick={() => { scrollToSection('resume'); onClose(); }}>
-                                Resume
-                            </Text>
-                            <Text sx={navLinks} onClick={() => { scrollToSection('skills'); onClose(); }}>
-                                Skills
-                            </Text>
-                            <Text sx={navLinks} onClick={() => { scrollToSection('projects'); onClose(); }}>
-                                Projects
-                            </Text>
-                            <Text sx={navLinks} onClick={() => { scrollToSection('contact'); onClose(); }}>
-                                Contact
-                            </Text>
+                        <VStack align="start" spacing="32px" mt="20px">
+                            {['home', 'about', 'resume', 'skills', 'projects', 'contact'].map(
+                                (link, i) => (
+                                    <motion.div
+                                        key={link}
+                                        custom={i}
+                                        initial="hidden"
+                                        animate="visible"
+                                        variants={menuVariants}
+                                        whileHover={{ scale: 1.1, x: 5, color: '#FF00CC' }}
+                                        whileTap={{ scale: 0.95 }}
+                                        style={{ width: '100%' }}
+                                    >
+                                        <Text
+                                            sx={navLinks}
+                                            cursor="pointer"
+                                            fontSize="1.4rem"
+                                            onClick={() => {
+                                                scrollToSection(link);
+                                                onClose();
+                                            }}
+                                            _hover={{
+                                                color: '#FF00CC',
+                                                textShadow: '0px 0px 10px rgba(255,0,204,0.6)',
+                                            }}
+                                        >
+                                            {link.charAt(0).toUpperCase() + link.slice(1)}
+                                        </Text>
+                                    </motion.div>
+                                ),
+                            )}
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>
-            </Drawer>
+            </Drawer>;
         </>
     );
 };

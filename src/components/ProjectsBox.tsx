@@ -1,132 +1,163 @@
-import { Box, Flex, Text, VStack, HStack, Image, Button, Spacer, Wrap, WrapItem } from '@chakra-ui/react';
-import { IProjectsBox } from '../interfaces/projects.interface.ts';
-import { FaGithub } from 'react-icons/fa';
+// ProjectsBox.tsx
+import { FiGithub, FiRotateCcw, FiInfo } from 'react-icons/fi';
+import { Box, Flex, VStack, Text, Badge, Link, Icon, Wrap, WrapItem } from '@chakra-ui/react';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
-const ProjectsBox = ({
-    type,
-    name,
-    image: imageUrl,
-    techStack,
-    description,
-    githubLink,
-    status,
-}: IProjectsBox) => {
+const MotionBox = motion(Box);
+
+export const FlipCard = ({ project, index }) => {
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    const handleFlip = () => setIsFlipped(!isFlipped);
+
+    const getStatusColor = (status) => {
+        switch (status.toLowerCase()) {
+        case 'finished': return 'green';
+        case 'in progress': return 'yellow';
+        case 'beta': return 'purple';
+        default: return 'gray';
+        }
+    };
+
     return (
-        <Box
-            width="100%"
-            height="auto"
-            backgroundColor="#1E1E1E"
-            borderRadius="10px"
+        <MotionBox
             position="relative"
-            overflow="hidden"
-            mb={5}
-            boxShadow="none"
+            w="100%"
+            h="450px"
+            style={{ perspective: '1200px' }}
+            onClick={handleFlip}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.1, type: 'spring' }}
+            whileHover={{ scale: 1.03 }}
         >
-            <Box
-                position="absolute"
-                top="10px"
-                right="10px"
-                backgroundColor={status === 'Finished' ? 'green.500' : 'yellow.500'}
-                color="white"
-                px="8px"
-                py="4px"
-                borderRadius="5px"
-                fontSize="0.8rem"
-                fontWeight="bold"
-                zIndex="1"
+            <MotionBox
+                position="relative"
+                w="100%"
+                h="100%"
+                style={{ transformStyle: 'preserve-3d' }}
+                animate={{ rotateY: isFlipped ? 180 : 0 }}
+                transition={{ duration: 0.7, ease: 'easeInOut' }}
             >
-                {status}
-            </Box>
-
-            <Flex
-                direction={{ base: 'column', lg: 'row' }}
-                height="100%"
-                width="100%"
-                wrap="wrap"
-            >
+                {/* Front */}
                 <Box
-                    width={{ base: '100%', lg: '45%' }}
-                    height={{ base: '200px', lg: '315px' }}
-                    position="relative"
+                    position="absolute"
+                    w="100%"
+                    h="100%"
+                    style={{ backfaceVisibility: 'hidden' }}
+                    borderRadius="20px"
                     overflow="hidden"
-                    mb={{ base: 4, lg: 0 }}
+                    bg="rgba(255,255,255,0.08)"
+                    backdropFilter="blur(15px) saturate(180%)"
+                    border="1px solid rgba(255,255,255,0.15)"
+                    boxShadow="0 12px 35px rgba(0, 0, 0, 0.6)"
+                    _hover={{
+                        boxShadow: '0 15px 45px rgba(255, 0, 204, 0.35)',
+                        borderColor: '#FF00CC',
+                    }}
                 >
-                    <Image
-                        src={imageUrl}
-                        alt={name}
-                        objectFit="cover"
-                        width={'885px'}
-                        height={'315px'}
-                        borderRadius="10px 0 0 10px"
-                        boxShadow="none"
-                    />
+                    {/* Larger image */}
+                    <Box position="relative" h="250px" overflow="hidden">
+                        <Box
+                            as="img"
+                            src={project.image}
+                            alt={project.name}
+                            w="100%"
+                            h="100%"
+                            objectFit="cover"
+                            transition="transform 0.5s ease"
+                            _hover={{ transform: 'scale(1.1)' }}
+                        />
+                        <Flex position="absolute" top="15px" left="15px">
+                            <Badge
+                                colorScheme={getStatusColor(project.status)}
+                                px={3}
+                                py={1}
+                                borderRadius="full"
+                                fontSize="xs"
+                                fontWeight="600"
+                                boxShadow="0 0 10px rgba(255,255,255,0.25)"
+                                as={motion.div}
+                                animate={{ scale: [1, 1.1, 1] }}
+                                transition={{ repeat: Infinity, duration: 2 }}
+                            >
+                                {project.status}
+                            </Badge>
+                        </Flex>
+                    </Box>
+
+                    {/* Details */}
+                    <VStack p={5} spacing={4} align="stretch" h="200px">
+                        <Text fontSize="xl" fontWeight="bold" color="#FF00CC" noOfLines={1}>
+                            {project.name}
+                        </Text>
+                        <Wrap spacing={2}>
+                            {project.techStack.slice(0, 3).map((tech, i) => (
+                                <WrapItem key={i}>
+                                    <Badge bg="whiteAlpha.200" color="white" px={2} py={1} borderRadius="md" fontSize="xs">
+                                        {tech}
+                                    </Badge>
+                                </WrapItem>
+                            ))}
+                        </Wrap>
+                        <Flex align="center" gap={2} color="gray.300" fontSize="sm" mt="auto">
+                            <Icon as={FiInfo} />
+                            <Text>Click to flip</Text>
+                            <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}>
+                                <Icon as={FiRotateCcw} />
+                            </motion.div>
+                        </Flex>
+                    </VStack>
                 </Box>
 
-                <VStack
-                    align="left"
-                    p={{ base: '10px' }}
-                    width={{ base: '100%', lg: '55%' }}
-                    color="white"
-                    justify="center"
+                {/* Back */}
+                <Box
+                    position="absolute"
+                    w="100%"
+                    h="100%"
+                    style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                    borderRadius="20px"
+                    bg="rgba(15,15,25,0.85)"
+                    backdropFilter="blur(15px) saturate(200%)"
+                    border="1px solid rgba(255,255,255,0.15)"
+                    p={6}
+                    display="flex"
+                    flexDirection="column"
+                    justify="space-between"
+                    boxShadow="0 12px 35px rgba(0, 0, 0, 0.6)"
                 >
-                    <Text fontSize={{ base: '1.5rem', lg: '2rem' }} fontWeight="bold" noOfLines={2}>
-                        {name}
-                    </Text>
-
-                    <HStack width={'100%'}>
-                        <Text fontSize={{ base: '1rem', lg: '1.25rem' }} color="#FF00CC">
-                            {type}
+                    <VStack spacing={3} align="center">
+                        <Text fontSize="xl" fontWeight="bold" color="#FF00CC">
+                            {project.name}
                         </Text>
-                    </HStack>
+                        <Text color="gray.200" fontSize="sm" textAlign="center">
+                            {project.description}
+                        </Text>
+                    </VStack>
 
-                    <Text fontSize={{ base: '0.875rem', lg: '1rem' }} color="#BBB" whiteSpace="normal" overflow="visible" textOverflow="unset">
-                        {description}
-                    </Text>
+                    <Flex justify="space-between" align="center" mt={6}>
+                        <Link
+                            href={project.githubLink}
+                            isExternal
+                            onClick={(e) => e.stopPropagation()}
+                            display="flex"
+                            align="center"
+                            gap={2}
+                            color="#FF00CC"
+                            _hover={{ color: 'white' }}
+                        >
+                            <Icon as={FiGithub} />
+                            <Text fontSize="sm">View Code</Text>
+                        </Link>
 
-                    <Wrap spacing={2} mt={2} align="center">
-                        {techStack?.split(',').map((tech, index) => (
-                            <WrapItem key={index}>
-                                <Text
-                                    fontSize={{ base: '0.875rem', lg: '1rem' }}
-                                    color="white"
-                                    bg="#333"
-                                    px={3}
-                                    py={1}
-                                    borderRadius="5px"
-                                    fontWeight="light"
-                                >
-                                    {tech.trim()}
-                                </Text>
-                            </WrapItem>
-                        ))}
-
-                        <Spacer />
-
-                        <WrapItem>
-                            <Button
-                                as="a"
-                                href={githubLink}
-                                target="_blank"
-                                color={'#BBB'}
-                                variant="outline"
-                                colorScheme="gray"
-                                size="sm"
-                                _hover={{
-                                    bg: '#FF00CC',
-                                    color: 'black',
-                                    boxShadow: 'none',
-                                }}
-                                leftIcon={<FaGithub />}
-                                textDecoration="none"
-                            >
-                                GitHub
-                            </Button>
-                        </WrapItem>
-                    </Wrap>
-                </VStack>
-            </Flex>
-        </Box>
+                        <Flex align="center" gap={2} color="gray.400" fontSize="sm">
+                            <Icon as={FiRotateCcw} />
+                            <Text>Flip Back</Text>
+                        </Flex>
+                    </Flex>
+                </Box>
+            </MotionBox>
+        </MotionBox>
     );
 };
-
-export default ProjectsBox;

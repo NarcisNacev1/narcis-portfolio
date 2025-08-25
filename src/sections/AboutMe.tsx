@@ -35,18 +35,43 @@ const AboutMe = () => {
             p={isPhoneScreen ? '15px' : '0'}
         >
             <motion.div
-                variants={itemVariants}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05 }}
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                    y: {
+                        repeat: Infinity,
+                        repeatType: 'reverse',
+                        duration: 3,
+                        ease: 'easeInOut',
+                    },
+                }}
                 style={{ flexShrink: 0, alignSelf: 'center' }}
             >
                 <Image
                     border={'20px solid #1E1E1E'}
                     src={'intro/bitmoji1.png'}
-                    width={isPhoneScreen ? '200px' : isSmallScreen ? '300px' : isTabletScreen ? '350px' : '660px'}
+                    width={
+                        isPhoneScreen
+                            ? '200px'
+                            : isSmallScreen
+                                ? '300px'
+                                : isTabletScreen
+                                    ? '350px'
+                                    : '660px'
+                    }
                     height="auto"
                     borderRadius={'20px'}
-                    margin={isPhoneScreen || isTabletScreen || isBelow1220px ? '0 auto 20px' : '0px 60px 100px 0px'}
-                    transition={'transform 0.3s ease-in-out'}
-                    _hover={{ transform: 'scale(1.1)' }}
+                    margin={
+                        isPhoneScreen || isTabletScreen || isBelow1220px
+                            ? '0 auto 20px'
+                            : '0px 60px 100px 0px'
+                    }
+                    boxShadow="0 0 20px rgba(255, 0, 204, 0.4)"
+                    _hover={{
+                        boxShadow: '0 0 35px rgba(255, 0, 204, 0.8)',
+                    }}
                 />
             </motion.div>
 
