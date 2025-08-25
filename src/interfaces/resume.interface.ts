@@ -7,4 +7,5 @@ export interface IResumeBox {
     toYear?: string,
     description?: string,
     icon?: React.ReactNode,
+    type: 'education' | 'experience',
 }

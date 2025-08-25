@@ -5,3 +5,7 @@
 html{
     background: #131313;
 }
+
+div[style*="pointer-events: none"][style*="position: fixed"] {
+    z-index: 9999 !important;
+}

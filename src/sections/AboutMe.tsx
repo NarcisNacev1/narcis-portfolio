@@ -116,10 +116,11 @@ const AboutMe = () => {
 
                     <motion.div variants={itemVariants}>
                         <Text color={'#FFFFFF'} width={'100%'} letterSpacing={'0.48px'} mt={'20px'} lineHeight={'2.3'}>
-                            Although I am relatively new to professional software development,
-                            I bring a solid foundation in backend & frontend engineering and hands-on experience from internships.
-                            I am passionate about continuous learning and dedicated to leveraging technology to solve complex challenges.
-                            My focus is on delivering secure, scalable, and impactful solutions that drive meaningful results.
+                            As a junior frontend developer, I bring a strong foundation in modern web technologies and hands-on experience from internships
+                            and real-world projects. My focus is on crafting secure, scalable, and visually engaging interfaces using
+                            Vue.js, React, TypeScript, and JavaScript. I’m passionate about continuous learning and thrive in collaborative environments where
+                            I can deepen my understanding of agile workflows, QA processes, and team communication.
+                            Every project is an opportunity to grow and deliver meaningful user experiences.
                         </Text>
                     </motion.div>
 

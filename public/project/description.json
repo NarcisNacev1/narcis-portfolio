@@ -1,82 +1,92 @@
 [
-  {
-    "id": 8,
-    "type": "AI Powered Teaching Assistant for Data Science",
-    "name": "TeachingAssistant",
-    "image": "images/projects/AIAssistent.jpg",
-    "techStack": ["OpenAI", "Flask", "PostgreSQL"],
-    "githubLink": "https://github.com/NarcisNacev1/UACS-AI-Powered-Teaching-Assistant-for-Data-Science",
-    "description": "An AI-powered API that assists students with course materials using OpenAI's language models. Features real-time interaction, response streaming, and comprehensive logging of all interactions for auditing purposes.",
-    "status": "Finished"
-  },
-  {
-    "id": 7,
-    "type": "Matching your Career Opportunities",
-    "name": "NextMatch",
-    "image": "images/projects/NextMatch.jpg",
-    "techStack": ["Django", "React", "PostgreSQL", "ScrapingDogAPI"],
-    "githubLink": "https://github.com/NarcisNacev1/jobfinder-backend",
-    "description": "A Django REST framework project that manages CV uploads and ranks job positions based on relevance. Uses TF-IDF and cosine similarity for scoring and integrates with ScrapingDog API for job data.",
-    "status": "Finished"
-  },
-  {
-    "id": 6,
-    "type": "Automated Real-time Observation and Reporting Assistant",
-    "name": "AURORA",
-    "image": "images/projects/AURORA.jpg",
-    "techStack": ["Linux", "Bash", "Python"],
-    "githubLink": "https://github.com/NarcisNacev1/PRISM",
-    "description": "A Linux-based system monitoring tool for real-time diagnostics and activity tracking. Features CPU, memory, and disk monitoring with automated email alerts and USB automation capabilities.",
-    "status": "Finished"
-  },
-  {
-    "id": 5,
-    "type": "Social Media Platform",
-    "name": "Scripted",
-    "image": "images/projects/Scripted.jpg",
-    "techStack": ["Django", "React", "PostgreSQL"],
-    "githubLink": " ",
-    "description": "Scripted is a collaborative project I'm developing with colleagues from Macedonia. It's a social media platform tailored for developers, offering features like post creation, commenting, liking, following, and direct messaging. Designed to foster connection and collaboration, Scripted serves as a space for developers of all levels to share knowledge and build their networks.",
-    "status": "In Progress"
-  },
-  {
-    "id": 4,
-    "type": "Voice Recognition / Text Editor",
-    "name": "Python Audio Text Editor",
-    "image": "images/projects/PythonAudioTextEditor.jpg",
-    "techStack": ["Python"],
-    "githubLink": "https://github.com/NarcisNacev1/PythonAudioTextEditor",
-    "description": "A unique text editor application built in Python with a voice recognition feature. This program allows users to dictate text, which the editor then transcribes, creating an interactive and hands-free text-editing experience.",
-    "status": "Finished"
-  },
-  {
-    "id": 3,
-    "type": "Portfolio Management Application",
-    "name": "Cryptocurrency Portfolio Tracker",
-    "image": "images/projects/CryptocurrencyPortfolioTracker.jpg",
-    "techStack": ["Django", "PostgreSQL"],
-    "githubLink": "https://github.com/NarcisNacev1/Cryptocurrency-Portfolio-Tracker",
-    "description": "A robust platform for managing cryptocurrency investments with real-time price tracking, transaction management, and portfolio performance monitoring. Built with Django and PostgreSQL for reliable data storage.",
-    "status": "Finished"
-  },
-  {
-    "id": 2,
-    "type": "2D C++ Game",
-    "name": "The Lonely Knight",
-    "image": "images/projects/LonleyKnight1.jpg",
-    "techStack": ["C++"],
-    "githubLink": "https://github.com/NarcisNacev1/GameEngine-LonleyKnightGame",
-    "description": "This project is my first substantial game development experience, which I created at the end of my first year at university. Designed as a 2D action-adventure game, LonelyKnight challenged me to apply core C++ concepts in a real-world application. Developing this game required a lot of persistence, troubleshooting, and creative problem-solving, but seeing the final product was highly rewarding.",
-    "status": "Finished"
-  },
-  {
-    "id": 1,
-    "type": "Data Extraction Tool",
-    "name": "Web Scraper",
-    "image": "images/projects/WebScraper.jpg",
-    "techStack": ["Python"],
-    "githubLink": "https://github.com/NarcisNacev1/WebScraper",
-    "description": "This web scraper is designed to fetch data on top players from the GPlay Dota Premium Ladder page. By utilizing Python's requests library for HTTP requests and BeautifulSoup4 for HTML parsing, the scraper extracts and organizes player names along with their associated points, making it easy to retrieve and analyze ranking data.",
-    "status": "Finished"
-  }
+    {
+        "id": 9,
+        "type": "Personal Portfolio Website",
+        "name": "Personal Portfolio",
+        "image": "images/projects/Portfolio.png",
+        "techStack": ["React", "TypeScript", "ChakraUI", "Vite", "Three"],
+        "githubLink": "https://github.com/NarcisNacev1/narcis-portfolio",
+        "description": "A personal portfolio website developed with React, TypeScript, and Chakra UI, enhanced with 3D interactive elements using Three.js. It showcases projects, skills, and experiences in a modern, responsive design, with smooth animations, dynamic components, and an engaging user interface that highlights both creativity and technical skills.",
+        "status": "ongoing"
+    },
+    {
+        "id": 8,
+        "type": "AI Powered Teaching Assistant for Data Science",
+        "name": "TeachingAssistant",
+        "image": "images/projects/AIAssistent.jpg",
+        "techStack": ["OpenAI", "Flask", "PostgreSQL"],
+        "githubLink": "https://github.com/NarcisNacev1/UACS-AI-Powered-Teaching-Assistant-for-Data-Science",
+        "description": "An AI-powered API that assists students with course materials using OpenAI's language models. Features real-time interaction, response streaming, and comprehensive logging of all interactions for auditing purposes.",
+        "status": "Finished"
+    },
+    {
+        "id": 7,
+        "type": "Matching your Career Opportunities",
+        "name": "NextMatch",
+        "image": "images/projects/NextMatch.jpg",
+        "techStack": ["Django", "React", "PostgreSQL", "ScrapingDogAPI"],
+        "githubLink": "https://github.com/NarcisNacev1/jobfinder-backend",
+        "description": "A Django REST framework project that manages CV uploads and ranks job positions based on relevance. Uses TF-IDF and cosine similarity for scoring and integrates with ScrapingDog API for job data.",
+        "status": "Finished"
+    },
+    {
+        "id": 6,
+        "type": "Automated Real-time Observation and Reporting Assistant",
+        "name": "AURORA",
+        "image": "images/projects/AURORA.jpg",
+        "techStack": ["Linux", "Bash", "Python"],
+        "githubLink": "https://github.com/NarcisNacev1/PRISM",
+        "description": "A Linux-based system monitoring tool for real-time diagnostics and activity tracking. Features CPU, memory, and disk monitoring with automated email alerts and USB automation capabilities.",
+        "status": "Finished"
+    },
+    {
+        "id": 5,
+        "type": "Social Media Platform",
+        "name": "Scripted",
+        "image": "images/projects/Scripted.jpg",
+        "techStack": ["Django", "React", "PostgreSQL"],
+        "githubLink": " ",
+        "description": "Scripted is a collaborative project I'm developing with colleagues from Macedonia. It's a social media platform tailored for developers, offering features like post creation, commenting, liking, following, and direct messaging. Designed to foster connection and collaboration, Scripted serves as a space for developers of all levels to share knowledge and build their networks.",
+        "status": "In Progress"
+    },
+    {
+        "id": 4,
+        "type": "Voice Recognition / Text Editor",
+        "name": "Python Audio Text Editor",
+        "image": "images/projects/PythonAudioTextEditor.jpg",
+        "techStack": ["Python"],
+        "githubLink": "https://github.com/NarcisNacev1/PythonAudioTextEditor",
+        "description": "A unique text editor application built in Python with a voice recognition feature. This program allows users to dictate text, which the editor then transcribes, creating an interactive and hands-free text-editing experience.",
+        "status": "Finished"
+    },
+    {
+        "id": 3,
+        "type": "Portfolio Management Application",
+        "name": "Cryptocurrency Portfolio Tracker",
+        "image": "images/projects/CryptocurrencyPortfolioTracker.jpg",
+        "techStack": ["Django", "PostgreSQL"],
+        "githubLink": "https://github.com/NarcisNacev1/Cryptocurrency-Portfolio-Tracker",
+        "description": "A robust platform for managing cryptocurrency investments with real-time price tracking, transaction management, and portfolio performance monitoring. Built with Django and PostgreSQL for reliable data storage.",
+        "status": "Finished"
+    },
+    {
+        "id": 2,
+        "type": "2D C++ Game",
+        "name": "The Lonely Knight",
+        "image": "images/projects/LonleyKnight1.jpg",
+        "techStack": ["C++"],
+        "githubLink": "https://github.com/NarcisNacev1/GameEngine-LonleyKnightGame",
+        "description": "This project is my first substantial game development experience, which I created at the end of my first year at university. Designed as a 2D action-adventure game, LonelyKnight challenged me to apply core C++ concepts in a real-world application. Developing this game required a lot of persistence, troubleshooting, and creative problem-solving, but seeing the final product was highly rewarding.",
+        "status": "Finished"
+    },
+    {
+        "id": 1,
+        "type": "Data Extraction Tool",
+        "name": "Web Scraper",
+        "image": "images/projects/WebScraper.jpg",
+        "techStack": ["Python"],
+        "githubLink": "https://github.com/NarcisNacev1/WebScraper",
+        "description": "This web scraper is designed to fetch data on top players from the GPlay Dota Premium Ladder page. By utilizing Python's requests library for HTTP requests and BeautifulSoup4 for HTML parsing, the scraper extracts and organizes player names along with their associated points, making it easy to retrieve and analyze ranking data.",
+        "status": "Finished"
+    }
 ]

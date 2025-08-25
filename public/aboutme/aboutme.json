@@ -1,18 +1,18 @@
 [
-  {
-    "id": 1,
-    "content": "Develop and optimize backend systems for web applications, ensuring efficient data flow and seamless user interaction."
-  },
-  {
-    "id": 2,
-    "content": "Create and implement Progressive Web Applications (PWA) using modern frameworks, enhancing user experience across devices."
-  },
-  {
-    "id": 3,
-    "content": "Integrate third-party services such as cloud platforms (e.g., AWS) and external APIs to improve functionality and scalability."
-  },
-  {
-    "id": 4,
-    "content": "Collaborate with cross-functional teams to design and implement scalable, secure backend solutions that meet business requirements."
-  }
+    {
+        "id": 1,
+        "content": "Design and optimize dynamic frontend interfaces for web applications, ensuring smooth user interaction and efficient data rendering."
+    },
+    {
+        "id": 2,
+        "content": "Build and deploy Progressive Web Applications (PWAs) using modern frontend frameworks like Vue and React, delivering fast, responsive experiences across devices."
+    },
+    {
+        "id": 3,
+        "content": "Integrate third-party APIs and cloud-based services to enrich frontend functionality, improve performance, and enable real-time features."
+    },
+    {
+        "id": 4,
+        "content": "Collaborate with designers, QA, and backend developers to implement scalable, secure, and visually engaging user interfaces aligned with business goals."
+    }
 ]

@@ -24,7 +24,7 @@ const Skills = () => {
     const floatVariant = {
         animate: {
             y: [0, -10, 0],
-            transition: { repeat: Infinity, repeatType: 'loop', duration: 2, ease: 'easeInOut' },
+            transition: { repeat: Infinity, repeatType: 'loop' as const, duration: 2, ease: 'easeInOut' },
         },
     };
 

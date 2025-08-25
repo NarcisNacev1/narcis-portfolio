@@ -165,7 +165,7 @@ export function Avatar (props: JSX.IntrinsicElements['group']) {
         pointingAction.clampWhenFinished = false;
         pointingAction.fadeIn(0.1).play();
 
-        const onFinish = (e: any) => {
+        const onFinish = (e: never) => {
             if (e.action === pointingAction) {
                 idleAction.reset();
                 idleAction.setLoop(THREE.LoopRepeat, Infinity);

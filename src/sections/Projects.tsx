@@ -40,6 +40,7 @@ const Projects = () => {
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
+                    viewport={{ once: true }}
                 >
                     <MotionText color="#FFFFFF">Latest</MotionText>
                     <MotionText color="#FFFFFF">Works</MotionText>
@@ -60,6 +61,7 @@ const Projects = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
                 >
                     <MotionText color="#FFFFFF">Explore My Popular</MotionText>
                     <MotionText color="#FF00CC">Projects</MotionText>

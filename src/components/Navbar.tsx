@@ -87,7 +87,7 @@ const Navbar = () => {
                         display="flex"
                         alignItems="center"
                     >
-                        <Text color="#FF00CC">N</Text>arcis <Text color="#FF00CC">N</Text>acev
+                        <Text as="span" color="#FF00CC">N</Text>arcis <Text as="span" color="#FF00CC">N</Text>acev
                     </Text>
 
                     {is1400wide ? (
@@ -141,7 +141,6 @@ const Navbar = () => {
                                     >
                                         <Text
                                             sx={navLinks}
-                                            cursor="pointer"
                                             fontSize="1.4rem"
                                             onClick={() => {
                                                 scrollToSection(link);

@@ -13,6 +13,5 @@ export const SkillsFlexStyle = {
         boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.5)',
         transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
     },
-    cursor: 'arrow',
     transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
 };

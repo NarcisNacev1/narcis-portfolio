@@ -35,8 +35,14 @@ function App () {
                     '[role="button"]',
                     '[role="menu"]',
                 ]}
-                outerStyle={{ pointerEvents: 'none' }}
-                innerStyle={{ pointerEvents: 'none' }}
+                outerStyle={{
+                    pointerEvents: 'none',
+                    zIndex: 9999,
+                }}
+                innerStyle={{
+                    pointerEvents: 'none',
+                    zIndex: 9999,
+                }}
             />
             <VantaBackground />
             <Navbar />

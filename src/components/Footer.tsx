@@ -1,10 +1,13 @@
-import { Box, Button, Flex, Text, useMediaQuery, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, HStack, useDisclosure } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, useMediaQuery, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, HStack, useDisclosure, shouldForwardProp, chakra } from '@chakra-ui/react';
 import { FiArrowUp } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { isValidMotionProp, motion } from 'framer-motion';
+
+const MotionButton = chakra(motion.button, {
+    shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
+});
 
 const Footer = () => {
-    const MotionButton = motion(Button);
     const [isWide] = useMediaQuery('(max-width: 995px)');
     const [isMobile] = useMediaQuery('(max-width: 768px)');
     const { isOpen, onClose } = useDisclosure();
@@ -128,28 +131,22 @@ const Footer = () => {
                 </Drawer>
             </Flex>
 
-            {/* Scroll to Top Button */}
             {showScrollButton && (
                 <MotionButton
                     onClick={scrollToTop}
-                    position="fixed"
+                    pos="fixed"
                     bottom={isMobile ? '15px' : '20px'}
                     right={isMobile ? '15px' : '20px'}
                     zIndex={1000}
-                    backgroundColor="#FF00CC"
+                    bg="#FF00CC"
                     color="#fff"
                     borderRadius="50%"
                     boxShadow="0 6px 18px rgba(255, 0, 204, 0.5)"
-                    _hover={{
-                        transform: 'scale(1.1)',
-                    }}
+                    _hover={{ transform: 'scale(1.1)' }}
                     initial={{ opacity: 0, scale: 0.8, y: 50 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.8, y: 50 }}
-                    transition={{
-                        duration: 0.3,
-                        ease: 'easeOut',
-                    }}
+                    transition={{ duration: 0.3, ease: 'easeOut' } as unknown as never}
                 >
                     <FiArrowUp size="24px" />
                 </MotionButton>

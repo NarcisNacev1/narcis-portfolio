@@ -7,7 +7,7 @@ const theme = extendTheme({
                 bg: 'transparent',
                 color: 'rgba(255, 255, 255, 0.65)',
                 overflowY: 'scroll',
-                '-ms-overflow-style': 'none',
+                '-msOverflowStyle': 'none',
             },
             html: {
                 scrollbarWidth: 'none',

@@ -81,6 +81,7 @@ const Resume = () => {
                                 fontSize={{ base: '1.5rem', sm: '1.875rem' }}
                                 fontWeight="bold"
                                 textAlign="left"
+                                fontFamily="'Ariel', cursive"
                                 width={isPhoneScreen || isTabletScreen || isBelow1358px ? '80%' : ' '}
                                 px="20px"
                                 pt="50px"
@@ -107,6 +108,7 @@ const Resume = () => {
                                         fromYear={item.fromYear}
                                         toYear={item.toYear}
                                         description={item.description}
+                                        type="education"
                                     />
                                 </motion.div>
                             ))}
@@ -120,6 +122,7 @@ const Resume = () => {
                                 color="#FFFFFF"
                                 fontSize={{ base: '1.5rem', sm: '1.875rem' }}
                                 fontWeight="bold"
+                                fontFamily="'Ariel', cursive"
                                 textAlign={isPhoneScreen || isTabletScreen || isBelow1358px ? 'left' : 'right'}
                                 mr={isPhoneScreen || isTabletScreen || isBelow1358px ? '100px' : '300px'}
                                 width={isPhoneScreen || isTabletScreen || isBelow1358px ? '80%' : ' '}
@@ -147,6 +150,7 @@ const Resume = () => {
                                         fromYear={item.fromYear}
                                         toYear={item.toYear}
                                         description={item.description}
+                                        type="work"
                                     />
                                 </motion.div>
                             ))}

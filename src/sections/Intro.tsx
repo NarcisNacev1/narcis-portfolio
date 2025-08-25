@@ -1,4 +1,4 @@
-import { Box, Button, Flex, HStack, Text, VStack, useMediaQuery, useDisclosure } from '@chakra-ui/react';
+import { Box, Button, Flex, HStack, Text, VStack, useMediaQuery } from '@chakra-ui/react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html, Sparkles } from '@react-three/drei';
 import { FiGithub, FiInstagram, FiLinkedin, FiMail } from 'react-icons/fi';
@@ -7,7 +7,7 @@ import { Avatar } from '../components/Avatar.tsx';
 import { Suspense, useState } from 'react';
 import { TextureLoader } from 'three';
 import * as THREE from 'three';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -19,13 +19,13 @@ const containerVariants = {
     },
 };
 
-const floatVariant = {
+const floatVariant: Variants = {
     float: {
         y: [0, -10, 0],
         transition: {
             duration: 2,
             repeat: Infinity,
-            repeatType: 'mirror',
+            repeatType: 'mirror' as const,
             ease: 'easeInOut',
         },
     },
@@ -229,14 +229,15 @@ const Intro = () => {
                     as={motion.p}
                     variants={itemVariants}
                     color="#FFFFFF"
-                    width={isSmallScreen ? '100%' : '43%'}
+                    width={isSmallScreen ? '100%' : '45%'}
                     letterSpacing="0.48px"
                     mt="20px"
                     lineHeight="2"
                 >
-                    From Skopje, North Macedonia. I specialize in crafting secure and efficient backend & frontend solutions,
-                    with expertise in Django, Flask, Vue js and PostgreSQL.
-                    Passionate about applying modern technologies to solve real-world problems.
+                    Based in Radovis, North Macedonia, I specialize in building secure and efficient full-stack solutions,
+                    with a strong focus on Vue, React, Django, and Flask.
+                    I’m passionate about leveraging modern technologies to solve real-world challenges and deliver scalable,
+                    high-impact applications.
                 </Text>
 
                 <HStack as={motion.div} variants={itemVariants} gap="15px">

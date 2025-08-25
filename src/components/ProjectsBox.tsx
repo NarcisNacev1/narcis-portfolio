@@ -1,21 +1,22 @@
-// ProjectsBox.tsx
 import { FiGithub, FiRotateCcw, FiInfo } from 'react-icons/fi';
 import { Box, Flex, VStack, Text, Badge, Link, Icon, Wrap, WrapItem } from '@chakra-ui/react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FlipCardProps } from '../interfaces/projects.interface.ts';
 
 const MotionBox = motion(Box);
+const MotionBadge = motion(Badge);
 
-export const FlipCard = ({ project, index }) => {
+export const FlipCard = ({ project, index }: FlipCardProps) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const handleFlip = () => setIsFlipped(!isFlipped);
 
-    const getStatusColor = (status) => {
+    const getStatusColor = (status: string) => {
         switch (status.toLowerCase()) {
         case 'finished': return 'green';
         case 'in progress': return 'yellow';
-        case 'beta': return 'purple';
+        case 'ongoing': return 'purple';
         default: return 'gray';
         }
     };
@@ -57,7 +58,6 @@ export const FlipCard = ({ project, index }) => {
                         borderColor: '#FF00CC',
                     }}
                 >
-                    {/* Larger image */}
                     <Box position="relative" h="250px" overflow="hidden">
                         <Box
                             as="img"
@@ -70,7 +70,7 @@ export const FlipCard = ({ project, index }) => {
                             _hover={{ transform: 'scale(1.1)' }}
                         />
                         <Flex position="absolute" top="15px" left="15px">
-                            <Badge
+                            <MotionBadge
                                 colorScheme={getStatusColor(project.status)}
                                 px={3}
                                 py={1}
@@ -83,17 +83,16 @@ export const FlipCard = ({ project, index }) => {
                                 transition={{ repeat: Infinity, duration: 2 }}
                             >
                                 {project.status}
-                            </Badge>
+                            </MotionBadge>
                         </Flex>
                     </Box>
 
-                    {/* Details */}
                     <VStack p={5} spacing={4} align="stretch" h="200px">
                         <Text fontSize="xl" fontWeight="bold" color="#FF00CC" noOfLines={1}>
                             {project.name}
                         </Text>
                         <Wrap spacing={2}>
-                            {project.techStack.slice(0, 3).map((tech, i) => (
+                            {project.techStack.slice(0, project.techStack.length).map((tech, i) => (
                                 <WrapItem key={i}>
                                     <Badge bg="whiteAlpha.200" color="white" px={2} py={1} borderRadius="md" fontSize="xs">
                                         {tech}
@@ -111,8 +110,7 @@ export const FlipCard = ({ project, index }) => {
                     </VStack>
                 </Box>
 
-                {/* Back */}
-                <Box
+                <Flex
                     position="absolute"
                     w="100%"
                     h="100%"
@@ -142,7 +140,7 @@ export const FlipCard = ({ project, index }) => {
                             isExternal
                             onClick={(e) => e.stopPropagation()}
                             display="flex"
-                            align="center"
+                            alignItems="center"
                             gap={2}
                             color="#FF00CC"
                             _hover={{ color: 'white' }}
@@ -156,7 +154,7 @@ export const FlipCard = ({ project, index }) => {
                             <Text>Flip Back</Text>
                         </Flex>
                     </Flex>
-                </Box>
+                </Flex>
             </MotionBox>
         </MotionBox>
     );

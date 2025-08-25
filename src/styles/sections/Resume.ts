@@ -5,7 +5,6 @@ export const ResumeIconFlexStyle = {
     _hover: {
         transform: 'scale(1.2)',
     },
-    cursor: 'arrow',
     transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out',
 };
 
