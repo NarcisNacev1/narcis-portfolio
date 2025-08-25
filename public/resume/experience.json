@@ -1,42 +1,65 @@
 [
-  {
-    "id": 5,
-    "schoolName": "Wabtec Corporation",
-    "degree": "IT Summer Intern",
-    "fromYear": "Aug 2024",
-    "toYear": "Sep 2024",
-    "description": "Contributed to IT tasks within a quality team, focusing on data management, process efficiency, and supporting analytics through MeasureLink integration. Played a key role in automating data tracking with a QR code project, ensuring accuracy through data cleaning and facilitating training on analytics software and Excel proficiency."
-  },
-  {
-    "id": 4,
-    "schoolName": "ROI Academy",
-    "degree": "Programming Intern",
-    "fromYear": "Jul 2024",
-    "toYear": "Aug 2024",
-    "description": "Developed a \"Cryptocurrency Portfolio Tracker\" application that allows users to manage transactions with real-time price updates from an external API and utilizes PostgreSQL for efficient data storage. Implemented user authentication to secure access and enhanced the user experience by providing portfolio valuation and performance metrics for effective investment tracking. Gained knowledge in Django, Python, RESTful APIs, Postman, and Docker throughout the development process.\n"
-  },
-  {
-    "id": 3,
-    "schoolName": "Insurance Supermarket \nInternational USA",
-    "degree": "Intermediary",
-    "fromYear": "Jun 2022",
-    "toYear": "Sep 2022",
-    "description": "Acted as an intermediary between American clients and life insurance agents, facilitating effective communication while managing multiple inquiries and interactions. Utilized Slack and Excel for streamlined project management and data analysis, enhancing operational efficiency and honing teamwork skills."
-  },
-  {
-    "id": 2,
-    "schoolName": "Ayecode",
-    "degree": "Wordpress Developer",
-    "fromYear": "Dec 2021",
-    "toYear": "Jul 2023",
-    "description": "Worked as a freelance contractor in website design and management, building and overseeing a WordPress site while creating engaging content. Developed skills in copywriting, web development, and user experience optimization to deliver high-quality digital solutions aligned with client objectives."
-  },
-  {
-    "id": 1,
-    "schoolName": "Freelance Social Media Manager",
-    "degree": "Content Manager",
-    "fromYear": "Feb 2020",
-    "toYear": "Jun 2023",
-    "description": "Managed the Instagram account @AyeCode.tv, successfully growing it to over 120,000 followers through strategic content scheduling and video editing. Leveraged client collaborations and engagement metrics to enhance visibility, refine strategies, and develop skills in social media marketing and content monetization."
-  }
+    {
+        "id": 7,
+        "schoolName": "Junior Frontend Developer",
+        "degree": "Frontend Developer",
+        "fromYear": "Apr 2025",
+        "toYear": "PRESENT",
+        "description": "After completing my internship at SymTeq, I was offered a full-time position and have been working there ever since. It’s been a deep dive into how real-world projects are structured—from agile workflows and QA processes to effective communication and team collaboration. I’ve significantly strengthened my skills in Vue.js and TypeScript by contributing to production-level code and participating in regular team meetings and reviews.",
+        "type": "experience"
+    },
+    {
+        "id": 6,
+        "schoolName": "SymTeq Frontend Intern",
+        "degree": "Summer Intern",
+        "fromYear": "Jan 2025",
+        "toYear": "Apr 2025",
+        "description": "Collaborated on several intern-level projects alongside coworkers, where I gained hands-on experience in team communication, agile workflows, and iterative development. I regularly received code reviews from a senior developer, which helped me sharpen my skills in JavaScript, TypeScript, and Vue. This experience gave me a real-world understanding of how to build and ship software in a professional environment.",
+        "type": "experience"
+    },
+    {
+        "id": 5,
+        "schoolName": "Wabtec Corporation",
+        "degree": "IT Summer Intern",
+        "fromYear": "Aug 2024",
+        "toYear": "Sep 2024",
+        "description": "Contributed to IT tasks within a quality team, focusing on data management, process efficiency, and supporting analytics through MeasureLink integration. Played a key role in automating data tracking with a QR code project, ensuring accuracy through data cleaning and facilitating training on analytics software and Excel proficiency.",
+        "type": "experience"
+    },
+    {
+        "id": 4,
+        "schoolName": "ROI Academy",
+        "degree": "Programming Intern",
+        "fromYear": "Jul 2024",
+        "toYear": "Aug 2024",
+        "description": "Developed a \"Cryptocurrency Portfolio Tracker\" application that allows users to manage transactions with real-time price updates from an external API and utilizes PostgreSQL for efficient data storage. Implemented user authentication to secure access and enhanced the user experience by providing portfolio valuation and performance metrics for effective investment tracking. Gained knowledge in Django, Python, RESTful APIs, Postman, and Docker throughout the development process.\n",
+        "type": "experience"
+    },
+    {
+        "id": 3,
+        "schoolName": "Insurance Supermarket \nInternational USA",
+        "degree": "Intermediary",
+        "fromYear": "Jun 2022",
+        "toYear": "Sep 2022",
+        "description": "Acted as an intermediary between American clients and life insurance agents, facilitating effective communication while managing multiple inquiries and interactions. Utilized Slack and Excel for streamlined project management and data analysis, enhancing operational efficiency and honing teamwork skills.",
+        "type": "experience"
+    },
+    {
+        "id": 2,
+        "schoolName": "Ayecode",
+        "degree": "Wordpress Developer",
+        "fromYear": "Dec 2021",
+        "toYear": "Jul 2023",
+        "description": "Worked as a freelance contractor in website design and management, building and overseeing a WordPress site while creating engaging content. Developed skills in copywriting, web development, and user experience optimization to deliver high-quality digital solutions aligned with client objectives.",
+        "type": "experience"
+    },
+    {
+        "id": 1,
+        "schoolName": "Freelance Social Media Manager",
+        "degree": "Content Manager",
+        "fromYear": "Feb 2020",
+        "toYear": "Jun 2023",
+        "description": "Managed the Instagram account @AyeCode.tv, successfully growing it to over 120,000 followers through strategic content scheduling and video editing. Leveraged client collaborations and engagement metrics to enhance visibility, refine strategies, and develop skills in social media marketing and content monetization.",
+        "type": "experience"
+    }
 ]

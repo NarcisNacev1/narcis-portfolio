@@ -1,46 +1,47 @@
-import { Flex, Image, Text } from '@chakra-ui/react';
+import { Box, Image, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import { ISkillsBox } from '../interfaces/skills.interface.ts';
-import { SkillsFlexStyle } from '../styles/sections/Skills.ts';
 
-const SkillsBox = ({
-    skillName,
-    image: imageUrl,
-}: ISkillsBox) => {
+const MotionBox = motion(Box);
+
+const SkillsBox = ({ skillName, image }: ISkillsBox) => {
     return (
-        <Flex
-            sx={SkillsFlexStyle}
+        <MotionBox
+            w="150px"
+            h="150px"
+            borderRadius="20px"
+            bg="rgba(255, 255, 255, 0.05)"
+            backdropFilter="blur(12px)"
+            boxShadow="0 8px 32px rgba(0, 0, 0, 0.25)"
+            display="flex"
             flexDirection="column"
-            padding={{ base: '8px', sm: '12px', md: '16px', lg: '20px' }}
-            width={{ base: '70px', sm: '90px', md: '110px', lg: '140px' }}
-            height={{ base: '70px', sm: '90px', md: '110px', lg: '140px' }}
-            textAlign="center"
-            mt={{ base: '15px', sm: '20px' }}
-            backgroundColor="#1E1E1E"
-            borderRadius="10px"
-            _hover={{
-                transform: 'scale(1.1)',
-                backgroundColor: '#2A2A2A',
+            alignItems="center"
+            justifyContent="center"
+            cursor="pointer"
+            whileHover={{
+                scale: 1.05,
+                rotateY: 10,
+                rotateX: 5,
+                boxShadow: '0 12px 40px rgba(255, 0, 204, 0.6)',
             }}
-            transition="transform 0.3s ease-in-out, background-color 0.3s ease-in-out"
+            transition={{ type: 'spring', stiffness: 120 }}
         >
-            {imageUrl && (
-                <Image
-                    src={imageUrl}
-                    alt={skillName}
-                    boxSize={{ base: '30px', sm: '40px', md: '50px', lg: '60px' }}
-                    objectFit="contain"
-                    margin="0 auto"
-                    mb={{ base: '5px', sm: '10px' }}
-                />
-            )}
+            <Image
+                src={image}
+                alt={skillName}
+                boxSize="70px"
+                mb="10px"
+                filter="drop-shadow(0 0 4px rgba(255,0,204,0.5))"
+            />
             <Text
-                fontSize={{ base: '0.8rem', sm: '0.9rem', md: '1rem', lg: '1.25rem' }}
-                fontWeight="bold"
-                color="#FFFFFF"
+                color="#fff"
+                fontWeight="semibold"
+                fontSize="1rem"
+                textAlign="center"
             >
                 {skillName}
             </Text>
-        </Flex>
+        </MotionBox>
     );
 };
 

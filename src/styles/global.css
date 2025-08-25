@@ -6,6 +6,6 @@ html{
     background: #131313;
 }
 
-*{
-    cursor: url('/cursor/cursor.cur'), auto!important;
+div[style*="pointer-events: none"][style*="position: fixed"] {
+    z-index: 9999 !important;
 }

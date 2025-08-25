@@ -1,7 +1,7 @@
-import { Box, Collapse, Flex, HStack, Text, useDisclosure, VStack } from '@chakra-ui/react';
+import { Box, Flex, Text, useDisclosure, VStack, Badge } from '@chakra-ui/react';
 import { IResumeBox } from '../interfaces/resume.interface.ts';
-import { FiMinus, FiPlus } from 'react-icons/fi';
-import { presentStyles, ResumeIconFlexStyle } from '../styles/sections/Resume.ts';
+import { FiChevronDown, FiCalendar, FiBookOpen, FiBriefcase } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const ResumeBox = ({
     schoolName,
@@ -9,103 +9,208 @@ const ResumeBox = ({
     fromYear,
     toYear,
     description,
+    type,
 }: IResumeBox) => {
     const { isOpen, onToggle } = useDisclosure();
-    const rotationDegree = isOpen ? 180 : 0;
+
+    const isWork = type === 'work';
+    const backgroundGradient = isWork
+        ? 'linear-gradient(135deg, rgba(255,0,204,0.08) 0%, rgba(80,0,60,0.15) 100%)'
+        : 'linear-gradient(135deg, rgba(0,204,255,0.08) 0%, rgba(0,80,120,0.12) 100%)';
+
+    const IconComponent = isWork ? FiBriefcase : FiBookOpen;
+
+    const cardVariants = {
+        closed: {
+            height: 'auto',
+            transition: { duration: 0.4, ease: 'easeInOut' },
+        },
+        open: {
+            height: 'auto',
+            transition: { duration: 0.4, ease: 'easeInOut' },
+        },
+    };
+
+    const chevronVariants = {
+        closed: { rotate: 0 },
+        open: { rotate: 180 },
+    };
+
+    const contentVariants = {
+        closed: {
+            opacity: 0,
+            height: 0,
+            transition: { duration: 0.3, ease: 'easeInOut' },
+        },
+        open: {
+            opacity: 1,
+            height: 'auto',
+            transition: { duration: 0.4, ease: 'easeInOut', delay: 0.1 },
+        },
+    };
 
     return (
-        <Box
-            border={'1px solid #01FF12'}
-            borderLeft={'none'}
-            width={{ base: '100%', sm: '90%', md: '80%', lg: '615px' }}
-            p={'15px 0'}
-            textShadow="0px 0px 3px #01FF12, 1px 1px 2px #01FF12"
-            color={'#FFFFFF'}
-            position={'relative'}
-            height={'fit-content'}
+        <motion.div
+            initial="closed"
+            animate={isOpen ? 'open' : 'closed'}
+            variants={cardVariants}
+            whileHover={{ y: -2 }}
+            transition={{ duration: 0.2 }}
         >
-            <Flex
-                width={'100%'}
-                justifyContent={'flex-end'}
-                mt={'-43px'}
-                ml={{ base: '0', sm: '25px' }}
+            <Box
+                position="relative"
+                width={{ base: '100%', sm: '90%', md: '80%', lg: '615px' }}
+                background={backgroundGradient}
+                backdropFilter="blur(10px)"
+                border="1px solid"
+                borderColor={isWork ? 'rgba(255, 0, 204, 0.25)' : 'rgba(255, 0, 204, 0.2)'}
+                borderRadius="16px"
+                overflow="hidden"
+                onClick={onToggle}
+                _hover={{
+                    borderColor: 'rgba(255, 0, 204, 0.4)',
+                    boxShadow: isWork
+                        ? '0 8px 32px rgba(255, 0, 204, 0.2)'
+                        : '0 8px 32px rgba(255, 0, 204, 0.15)',
+                }}
+                transition="all 0.3s ease"
+                boxShadow={isWork
+                    ? '0 4px 20px rgba(0, 0, 0, 0.4)'
+                    : '0 4px 20px rgba(0, 0, 0, 0.3)'}
             >
                 <Box
-                    backgroundColor={'#131313'}
-                    width={'55px'}
-                    height={'55px'}
-                    border={'1px solid #01FF12'}
-                    borderRadius={'full'}
-                    justifyContent={'center'}
-                    alignItems={'center'}
-                    sx={ResumeIconFlexStyle}
-                    onClick={onToggle}
-                    cursor={'pointer'}
-                    transition="transform 0.3s ease"
-                    transform={`rotate(${rotationDegree}deg)`}
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    width="4px"
+                    height="100%"
+                    background="linear-gradient(180deg, #FF00CC 0%, rgba(255, 0, 204, 0.5) 100%)"
+                />
+
+                <Flex
+                    p="24px"
+                    justifyContent="space-between"
+                    alignItems="center"
                 >
-                    <Box width={'100%'} height={'100%'}>
-                        {isOpen ? (
-                            <FiMinus color={'#01FF12'} fontSize={'1.6rem'} style={{ height: '100%', margin: '0 auto' }} />
-                        ) : (
-                            <FiPlus color={'#01FF12'} fontSize={'1.6rem'} style={{ height: '100%', margin: '0 auto' }} />
-                        )}
-                    </Box>
-                </Box>
-            </Flex>
-
-            <VStack alignItems={'left'} spacing={4}>
-                <Text fontSize={{ base: '1.2rem', sm: '1.5rem' }}>{schoolName}</Text>
-
-                <Box alignItems="flex-start" overflow={'hidden'}>
-                    <Collapse
-                        in={isOpen}
-                        animateOpacity
-                        startingHeight={5}
-                        transition={{ enter: { duration: 1.5 }, exit: { duration: 1.5 } }}
-                    >
-                        <HStack
-                            justifyContent={'space-between'}
-                            fontFamily={"'Kalam', cursive"}
-                            fontSize={{ base: '1rem', sm: '1.5rem' }}
-                            opacity={isOpen ? 1 : 0}
-                            width={'100%'}
-                        >
-                            <Text pb={1} width={'70%'} fontSize={{ base: '1rem', sm: '1.5rem' }}>{degree}</Text>
-
-                            <Flex
-                                alignItems={'center'}
-                                justifyContent={'flex-end'}
-                                width={'auto'}
-                                flexDirection={{ base: 'column', sm: 'row' }}
-                                gap={{ base: '5px', sm: '2px' }}
+                    <VStack alignItems="flex-start" spacing={3} flex={1}>
+                        <Flex alignItems="center" gap={3}>
+                            <Box
+                                p={2}
+                                borderRadius="8px"
+                                background={isWork
+                                    ? 'rgba(255, 0, 204, 0.12)'
+                                    : 'rgba(255, 0, 204, 0.1)'}
+                                border="1px solid rgba(255, 0, 204, 0.2)"
                             >
-                                <Text
-                                    width={'100%'}
-                                    minWidth={'100px'}
-                                    textAlign={'center'}
-                                    fontSize={{ base: '0.875rem', sm: '1.25rem' }}
+                                <IconComponent color="#FF00CC" size={20} />
+                            </Box>
+                            <Text
+                                fontSize={{ base: '1.3rem', sm: '1.6rem' }}
+                                fontWeight="600"
+                                color="#FFFFFF"
+                                fontFamily="'Ariel', cursive"
+                                textShadow="0px 0px 10px rgba(255, 0, 204, 0.3)"
+                            >
+                                {schoolName}
+                            </Text>
+                        </Flex>
+
+                        <Flex alignItems="center" gap={2}>
+                            <FiCalendar color="rgba(255, 255, 255, 0.7)" size={16} />
+                            <Text
+                                fontSize={{ base: '0.9rem', sm: '1rem' }}
+                                color="rgba(255, 255, 255, 0.7)"
+                                fontWeight="500"
+                            >
+                                {fromYear} - {toYear}
+                            </Text>
+                            {toYear === 'PRESENT' && (
+                                <Badge
+                                    colorScheme="pink"
+                                    variant="subtle"
+                                    background="rgba(255, 0, 204, 0.15)"
+                                    color="#FF00CC"
+                                    border="1px solid rgba(255, 0, 204, 0.3)"
+                                    borderRadius="full"
+                                    px={3}
+                                    py={1}
+                                    fontSize="0.75rem"
+                                    fontWeight="600"
+                                    textTransform="uppercase"
+                                    letterSpacing="0.5px"
                                 >
-                                    {fromYear}
-                                </Text>
-                                <Text> - </Text>
+                                    Current
+                                </Badge>
+                            )}
+                        </Flex>
+                    </VStack>
+
+                    <motion.div
+                        variants={chevronVariants}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    >
+                        <Box
+                            p={3}
+                            borderRadius="full"
+                            background="rgba(255, 0, 204, 0.1)"
+                            border="1px solid rgba(255, 0, 204, 0.2)"
+                            _hover={{
+                                background: 'rgba(255, 0, 204, 0.15)',
+                                borderColor: 'rgba(255, 0, 204, 0.4)',
+                            }}
+                            transition="all 0.2s ease"
+                        >
+                            <FiChevronDown color="#FF00CC" size={20} />
+                        </Box>
+                    </motion.div>
+                </Flex>
+
+                <motion.div variants={contentVariants}>
+                    <Box px="24px" pb="24px">
+                        <Box
+                            width="100%"
+                            height="1px"
+                            background="linear-gradient(90deg, rgba(255, 0, 204, 0.3) 0%, transparent 100%)"
+                            mb={4}
+                        />
+
+                        <VStack alignItems="flex-start" spacing={4}>
+                            <Box>
                                 <Text
-                                    width={'1001%'}
-                                    minWidth={'100px'}
-                                    textAlign={'center'}
-                                    fontSize={{ base: '0.875rem', sm: '1.25rem' }}
-                                    style={toYear === 'PRESENT' ? presentStyles : {}}
-                                    mr={4}
+                                    fontSize={{ base: '1rem', sm: '1.1rem' }}
+                                    fontWeight="600"
+                                    color="#FFFFFF"
+                                    mb={2}
                                 >
-                                    {toYear}
+                                    {degree}
                                 </Text>
-                            </Flex>
-                        </HStack>
-                        <Text fontSize={{ base: '0.875rem', sm: '1.125rem' }}>{description}</Text>
-                    </Collapse>
-                </Box>
-            </VStack>
-        </Box>
+                                <Text
+                                    fontSize={{ base: '0.9rem', sm: '1rem' }}
+                                    color="rgba(255, 255, 255, 0.8)"
+                                    lineHeight="1.6"
+                                    fontFamily="'Inter', sans-serif"
+                                >
+                                    {description}
+                                </Text>
+                            </Box>
+                        </VStack>
+                    </Box>
+                </motion.div>
+
+                <Box
+                    position="absolute"
+                    top="50%"
+                    left="-50%"
+                    width="200%"
+                    height="1px"
+                    background="linear-gradient(90deg, transparent 0%, rgba(255, 0, 204, 0.3) 50%, transparent 100%)"
+                    opacity={isOpen ? 1 : 0}
+                    transition="opacity 0.3s ease"
+                    transform="translateY(-50%)"
+                    pointerEvents="none"
+                />
+            </Box>
+        </motion.div>
     );
 };
 
