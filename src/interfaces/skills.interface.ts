@@ -1,4 +1,4 @@
 export interface ISkillsBox {
-    skillName?: string;
-    image?: string;
+    skillName: string;
+    image: string;
 }
