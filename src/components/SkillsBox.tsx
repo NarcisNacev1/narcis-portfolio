@@ -1,14 +1,10 @@
 import { Box, Image, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-
-interface SkillsBoxProps {
-    skillName: string;
-    image: string;
-}
+import { ISkillsBox } from '../interfaces/skills.interface.ts';
 
 const MotionBox = motion(Box);
 
-const SkillsBox = ({ skillName, image }: SkillsBoxProps) => {
+const SkillsBox = ({ skillName, image }: ISkillsBox) => {
     return (
         <MotionBox
             w="150px"
