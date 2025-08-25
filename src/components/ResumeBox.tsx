@@ -9,8 +9,8 @@ const ResumeBox = ({
     fromYear,
     toYear,
     description,
-    type = 'education',
-}: IResumeBox & { type?: 'education' | 'work' }) => {
+    type,
+}: IResumeBox) => {
     const { isOpen, onToggle } = useDisclosure();
 
     const isWork = type === 'work';
