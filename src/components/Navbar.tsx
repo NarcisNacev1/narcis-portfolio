@@ -58,7 +58,7 @@ const Navbar = () => {
                 style={{
                     position: 'fixed',
                     top: '20px',
-                    left: isSmallScreen ? '20%' : '30%',
+                    left: isSmallScreen ? '14%' : '30%',
                     transform: 'translateX(-70%)',
                     width: 'auto',
                     padding: '0 32px',
