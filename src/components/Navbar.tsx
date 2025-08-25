@@ -159,7 +159,7 @@ const Navbar = () => {
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>
-            </Drawer>;
+            </Drawer>
         </>
     );
 };
