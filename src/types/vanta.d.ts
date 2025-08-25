@@ -1,7 +1,7 @@
-import * as THREE from 'three';
-
 declare module 'vanta/dist/vanta.cells.min' {
-    interface VantaEffectOptions {
+    import * as THREE from 'three';
+
+    export interface VantaEffectOptions {
         el: HTMLElement | null;
         THREE: typeof THREE;
         mouseControls?: boolean;
@@ -16,7 +16,7 @@ declare module 'vanta/dist/vanta.cells.min' {
         speed?: number;
     }
 
-    interface VantaEffectInstance {
+    export interface VantaEffectInstance {
         destroy: () => void;
     }
 
