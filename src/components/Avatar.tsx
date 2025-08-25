@@ -165,14 +165,14 @@ export function Avatar (props: JSX.IntrinsicElements['group']) {
         pointingAction.clampWhenFinished = false;
         pointingAction.fadeIn(0.1).play();
 
-        const onFinish = (e: never) => {
+        const onFinish = ((e: THREE.Event & { action: THREE.AnimationAction }) => {
             if (e.action === pointingAction) {
                 idleAction.reset();
                 idleAction.setLoop(THREE.LoopRepeat, Infinity);
                 idleAction.fadeIn(0.2).play();
                 mixer.removeEventListener('finished', onFinish);
             }
-        };
+        });
 
         mixer.addEventListener('finished', onFinish);
     };
