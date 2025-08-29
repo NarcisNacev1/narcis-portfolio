@@ -75,6 +75,8 @@ const Intro = () => {
                         border: '4px solid #FF00CC',
                         borderRadius: '50%',
                         transition: 'transform 0.3s ease-in-out',
+                        maxWidth: '100%',
+                        height: 'auto',
                     }}
                     onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -86,6 +88,7 @@ const Intro = () => {
             <Box
                 width={width}
                 height={height}
+                maxW="100%"
                 overflow={'hidden'}
                 borderRadius="full"
                 transition={'transform 0.3s ease-in-out'}
@@ -126,7 +129,7 @@ const Intro = () => {
                         />
 
                         <Html position={[0, 1.5, 0]} center>
-                            <Text fontSize="1.5rem" color="#FF00CC">Narcis Nacev</Text>
+                            <Text fontSize="1.5rem" color="#FF00CC" whiteSpace="nowrap">Narcis Nacev</Text>
                         </Html>
 
                         <Html position={[0, -2.2, 0]} center>
@@ -172,7 +175,8 @@ const Intro = () => {
         <Box
             id={'home'}
             height={isSmallScreen ? 'auto' : '600.5px'}
-            width={'80%'}
+            width={'90%'}
+            maxW="1450px"
             m={'100px auto'}
             p={isSmallScreen ? '20px' : '0'}
             display={'flex'}
@@ -181,7 +185,9 @@ const Intro = () => {
             alignItems={'center'}
         >
             {isSmallScreen && (
-                <AvatarCanvas width="500px" height="500px" />
+                <Box maxW="100%" overflow="hidden">
+                    <AvatarCanvas width="500px" height="500px" />
+                </Box>
             )}
 
             <VStack
@@ -192,6 +198,7 @@ const Intro = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 alignItems={isSmallScreen ? 'center' : 'left'}
                 textAlign={isSmallScreen ? 'center' : 'left'}
+                maxW="100%"
             >
                 <Text
                     as={motion.p}
@@ -199,6 +206,7 @@ const Intro = () => {
                     textTransform="uppercase"
                     fontSize="1.25rem"
                     letterSpacing="1.28px"
+                    whiteSpace="nowrap"
                 >
                     hello, my name is
                 </Text>
@@ -210,6 +218,8 @@ const Intro = () => {
                     gap="24px"
                     fontFamily="'Pacifico', cursive"
                     letterSpacing="1.28px"
+                    flexWrap="wrap"
+                    justifyContent={isSmallScreen ? 'center' : 'flex-start'}
                 >
                     <Text color="#FF00CC">Narcis</Text>
                     <Text color="#FFFFFF">Nacev</Text>
@@ -221,6 +231,7 @@ const Intro = () => {
                     fontSize="1.5rem"
                     letterSpacing="1.28px"
                     fontWeight="normal"
+                    whiteSpace="nowrap"
                 >
                     Software Engineer
                 </Text>
@@ -230,17 +241,24 @@ const Intro = () => {
                     variants={itemVariants}
                     color="#FFFFFF"
                     width={isSmallScreen ? '100%' : '45%'}
+                    maxW="100%"
                     letterSpacing="0.48px"
                     mt="20px"
                     lineHeight="2"
                 >
                     Based in Radovis, North Macedonia, I specialize in building secure and efficient full-stack solutions,
                     with a strong focus on Vue, React, Django, and Flask.
-                    I’m passionate about leveraging modern technologies to solve real-world challenges and deliver scalable,
+                    I'm passionate about leveraging modern technologies to solve real-world challenges and deliver scalable,
                     high-impact applications.
                 </Text>
 
-                <HStack as={motion.div} variants={itemVariants} gap="15px">
+                <HStack
+                    as={motion.div}
+                    variants={itemVariants}
+                    gap="15px"
+                    flexWrap="wrap"
+                    justifyContent={isSmallScreen ? 'center' : 'flex-start'}
+                >
                     <Button
                         sx={buttonStyle}
                         fontFamily="'Pacifico', cursive"
@@ -264,7 +282,13 @@ const Intro = () => {
                     </Button>
                 </HStack>
 
-                <HStack as={motion.div} variants={itemVariants} gap="20px">
+                <HStack
+                    as={motion.div}
+                    variants={itemVariants}
+                    gap="20px"
+                    flexWrap="wrap"
+                    justifyContent={isSmallScreen ? 'center' : 'flex-start'}
+                >
                     <Flex sx={iconFlexStyle} as="a" href="https://github.com/NarcisNacev1" target="_blank">
                         <FiGithub style={iconStyle} />
                     </Flex>
@@ -281,7 +305,11 @@ const Intro = () => {
             </VStack>
 
             {isTabletScreen && (
-                <Box alignItems={'center'} justifyContent={'center'}>
+                <Box
+                    alignItems={'center'}
+                    justifyContent={'center'}
+                    maxW="800px"
+                >
                     <motion.div variants={floatVariant} animate="float">
                         <AvatarCanvas width="500px" height="800px" />
                     </motion.div>

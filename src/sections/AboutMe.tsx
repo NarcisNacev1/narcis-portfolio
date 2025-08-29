@@ -28,6 +28,7 @@ const AboutMe = () => {
             border="0px solid red"
             height="auto"
             width={'80%'}
+            maxW="1400px"
             m={'33px auto'}
             display={'flex'}
             flexDirection={isPhoneScreen || isTabletScreen || isBelow1220px ? 'column' : 'row'}
@@ -61,8 +62,9 @@ const AboutMe = () => {
                                     ? '350px'
                                     : '660px'
                     }
+                    maxW="100%"
                     height="auto"
-                    borderRadius={'20px'}
+                    borderRadius={'10px'}
                     margin={
                         isPhoneScreen || isTabletScreen || isBelow1220px
                             ? '0 auto 20px'
@@ -80,7 +82,11 @@ const AboutMe = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={containerVariants}
-                style={{ flexBasis: '60%', maxWidth: isPhoneScreen || isTabletScreen || isBelow1220px ? '100%' : '43%' }}
+                style={{
+                    flexBasis: '60%',
+                    maxWidth: isPhoneScreen || isTabletScreen || isBelow1220px ? '100%' : '43%',
+                    overflow: 'hidden',
+                }}
             >
                 <VStack
                     mb={'100px'}
@@ -88,9 +94,17 @@ const AboutMe = () => {
                     spacing={-2}
                     lineHeight="1.2"
                     textAlign={isPhoneScreen || isTabletScreen || isBelow1220px ? 'center' : 'left'}
+                    maxW="100%"
                 >
                     <motion.div variants={itemVariants}>
-                        <Text fontSize={'1.25rem'} letterSpacing={'0.48px'} fontWeight={'normal'} mb={'20px'} mt={'0px'}>
+                        <Text
+                            fontSize={'1.25rem'}
+                            letterSpacing={'0.48px'}
+                            fontWeight={'normal'}
+                            mb={'20px'}
+                            mt={'0px'}
+                            whiteSpace="nowrap"
+                        >
                             About Me
                         </Text>
                     </motion.div>
@@ -102,12 +116,21 @@ const AboutMe = () => {
                             fontFamily="'Pacifico', cursive"
                             fontWeight={'normal'}
                             m={isPhoneScreen || isTabletScreen || isBelow1220px ? '0 auto' : ' '}
+                            maxW="100%"
                         >
-                            <Flex gap={'13px'}>
+                            <Flex
+                                gap={'13px'}
+                                flexWrap="wrap"
+                                justifyContent={isPhoneScreen || isTabletScreen || isBelow1220px ? 'center' : 'flex-start'}
+                            >
                                 <Text color={'#FF00CC'}>Driven,</Text>
                                 <Text color={'#FFFFFF'}>innovative</Text>
                             </Flex>
-                            <Flex gap={'13px'}>
+                            <Flex
+                                gap={'13px'}
+                                flexWrap="wrap"
+                                justifyContent={isPhoneScreen || isTabletScreen || isBelow1220px ? 'center' : 'flex-start'}
+                            >
                                 <Text color={'#FFFFFF'}>Software</Text>
                                 <Text color={'#FF00CC'}>Engineer</Text>
                             </Flex>
@@ -115,10 +138,18 @@ const AboutMe = () => {
                     </motion.div>
 
                     <motion.div variants={itemVariants}>
-                        <Text color={'#FFFFFF'} width={'100%'} letterSpacing={'0.48px'} mt={'20px'} lineHeight={'2.3'}>
+                        <Text
+                            color={'#FFFFFF'}
+                            width={'100%'}
+                            maxW="100%"
+                            letterSpacing={'0.48px'}
+                            mt={'20px'}
+                            lineHeight={'2.3'}
+                            wordBreak="break-word"
+                        >
                             As a junior frontend developer, I bring a strong foundation in modern web technologies and hands-on experience from internships
                             and real-world projects. My focus is on crafting secure, scalable, and visually engaging interfaces using
-                            Vue.js, React, TypeScript, and JavaScript. I’m passionate about continuous learning and thrive in collaborative environments where
+                            Vue.js, React, TypeScript, and JavaScript. I'm passionate about continuous learning and thrive in collaborative environments where
                             I can deepen my understanding of agile workflows, QA processes, and team communication.
                             Every project is an opportunity to grow and deliver meaningful user experiences.
                         </Text>
@@ -126,14 +157,27 @@ const AboutMe = () => {
 
                     {aboutme.map((item) => (
                         <motion.div variants={itemVariants} key={item.id}>
-                            <Box margin={isPhoneScreen || isTabletScreen || isBelow1220px ? '0 auto' : ' '}
-                                width={isPhoneScreen || isTabletScreen || isBelow1220px ? '80%' : ' '}
+                            <Box
+                                margin={isPhoneScreen || isTabletScreen || isBelow1220px ? '0 auto' : ' '}
+                                width={isPhoneScreen || isTabletScreen || isBelow1220px ? '80%' : '100%'}
+                                maxW="100%"
                             >
-                                <HStack spacing={isPhoneScreen ? '10px' : '20px'} mt={'20px'}>
-                                    <Flex sx={AboutMeIconFlexStyle}>
+                                <HStack
+                                    spacing={isPhoneScreen ? '10px' : '20px'}
+                                    mt={'20px'}
+                                    align="flex-start"
+                                >
+                                    <Flex sx={AboutMeIconFlexStyle} flexShrink={0}>
                                         <FiCheckCircle size={'20px'}/>
                                     </Flex>
-                                    <Text mt={'15px'} ml={'5px'}>{item.content}</Text>
+                                    <Text
+                                        mt={'15px'}
+                                        ml={'5px'}
+                                        flex={1}
+                                        wordBreak="break-word"
+                                    >
+                                        {item.content}
+                                    </Text>
                                 </HStack>
                             </Box>
                         </motion.div>
