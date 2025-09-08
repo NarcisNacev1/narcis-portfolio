@@ -1,6 +1,8 @@
 export const navLinks = {
-    transition: 'color 0.5s ease-in-out',
-    fontFamily: "'Ariel'",
+    fontFamily: "'Arial', sans-serif",
+    transitionProperty: 'color',
+    transitionDuration: '0.5s',
+    transitionTimingFunction: 'ease-in-out',
     _active: {
         color: '#FF00CC',
     },

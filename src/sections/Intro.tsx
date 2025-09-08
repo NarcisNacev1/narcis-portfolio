@@ -36,6 +36,120 @@ const itemVariants = {
     visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
+const AvatarCanvas = ({ width, height }: { width: string; height: string }) => {
+    const [use3D, setUse3D] = useState(true);
+
+    const grassTopTexture = useLoader(TextureLoader, '/textures/endstone1.png');
+    const dirtTexture = useLoader(TextureLoader, '/textures/endstone.png');
+
+    grassTopTexture.wrapS = grassTopTexture.wrapT = THREE.RepeatWrapping;
+    grassTopTexture.repeat.set(1,1);
+    grassTopTexture.magFilter = THREE.NearestFilter;
+    grassTopTexture.minFilter = THREE.NearestFilter;
+
+    dirtTexture.wrapS = dirtTexture.wrapT = THREE.RepeatWrapping;
+    dirtTexture.repeat.set(1, 0.1);
+    dirtTexture.magFilter = THREE.NearestFilter;
+    dirtTexture.minFilter = THREE.NearestFilter;
+
+    if (!use3D) {
+        return (
+            <img
+                src={'intro/bitmoji1.png'}
+                width={width}
+                height={height}
+                style={{
+                    border: '4px solid #FF00CC',
+                    borderRadius: '50%',
+                    transition: 'transform 0.3s ease-in-out',
+                    maxWidth: '100%',
+                    height: 'auto',
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            />
+        );
+    }
+
+    return (
+        <Box
+            width={width}
+            height={height}
+            maxW="100%"
+            overflow={'hidden'}
+            borderRadius="full"
+            transition={'transform 0.3s ease-in-out'}
+            _hover={{
+                transform: 'scale(1.1)',
+            }}
+        >
+            <Canvas shadows
+                camera={{
+                    position: [0, 0, 4],
+                    fov: 35,
+                }}
+                style={{
+                    width: '100%',
+                    height: '100%',
+                }}
+                onError={() => {
+                    console.error('3D Canvas error, falling back to image');
+                    setUse3D(false);
+                }}
+            >
+                <ambientLight intensity={0.6} />
+                <directionalLight position={[2, 5, 3]} intensity={0.8} castShadow />
+                <pointLight position={[-2, 2, 2]} intensity={0.3} />
+
+                <Suspense fallback={
+                    <Html center>
+                        <div style={{ color: '#FF00CC', fontSize: '14px', fontFamily: "'Pacifico', cursive" }}>Loading...</div>
+                    </Html>
+                }>
+                    <Sparkles
+                        count={50}
+                        scale={2}
+                        size={1.5}
+                        speed={0.4}
+                        color="#FF00CC"
+                        position={[0, 0, 0]}
+                    />
+
+                    <group position={[0, -0.95, 0]}>
+                        <mesh position={[0, 0.02, 0]} castShadow receiveShadow>
+                            <cylinderGeometry args={[0.8, 0.4, 0.2, 32]} />
+                            <meshStandardMaterial
+                                map={dirtTexture}
+                                roughness={0.8}
+                                metalness={0}
+                            />
+                        </mesh>
+
+                        <mesh position={[0, 0.125, 0]} castShadow receiveShadow>
+                            <cylinderGeometry args={[0.8, 0.8, 0.005, 32]} />
+                            <meshStandardMaterial
+                                map={grassTopTexture}
+                                roughness={0.8}
+                                metalness={0}
+                            />
+                        </mesh>
+
+                        <Avatar position={[0, 0.15, 0]} scale={0.9} rotation={[0, 0, 0]} />
+                    </group>
+                </Suspense>
+
+                <OrbitControls
+                    enableZoom={false}
+                    enablePan={false}
+                    maxPolarAngle={Math.PI / 1.8}
+                    minPolarAngle={Math.PI / 3}
+                    target={[0, 0, 0]}
+                />
+            </Canvas>
+        </Box>
+    );
+};
+
 const Intro = () => {
     const [isSmallScreen] = useMediaQuery('(max-width: 768px)');
     const [isTabletScreen] = useMediaQuery('(min-width: 769px)');
@@ -47,128 +161,6 @@ const Intro = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-    };
-
-    const AvatarCanvas = ({ width, height }: { width: string; height: string }) => {
-        const [use3D, setUse3D] = useState(true);
-
-        const grassTopTexture = useLoader(TextureLoader, '/textures/endstone1.png');
-        const dirtTexture = useLoader(TextureLoader, '/textures/endstone.png');
-
-        grassTopTexture.wrapS = grassTopTexture.wrapT = THREE.RepeatWrapping;
-        grassTopTexture.repeat.set(1,1);
-        grassTopTexture.magFilter = THREE.NearestFilter;
-        grassTopTexture.minFilter = THREE.NearestFilter;
-
-        dirtTexture.wrapS = dirtTexture.wrapT = THREE.RepeatWrapping;
-        dirtTexture.repeat.set(1, 0.1);
-        dirtTexture.magFilter = THREE.NearestFilter;
-        dirtTexture.minFilter = THREE.NearestFilter;
-
-        if (!use3D) {
-            return (
-                <img
-                    src={'intro/bitmoji1.png'}
-                    width={width}
-                    height={height}
-                    style={{
-                        border: '4px solid #FF00CC',
-                        borderRadius: '50%',
-                        transition: 'transform 0.3s ease-in-out',
-                        maxWidth: '100%',
-                        height: 'auto',
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                />
-            );
-        }
-
-        return (
-            <Box
-                width={width}
-                height={height}
-                maxW="100%"
-                overflow={'hidden'}
-                borderRadius="full"
-                transition={'transform 0.3s ease-in-out'}
-                _hover={{
-                    transform: 'scale(1.1)',
-                }}
-            >
-                <Canvas shadows
-                    camera={{
-                        position: [0, 0, 4],
-                        fov: 35,
-                    }}
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                    }}
-                    onError={() => {
-                        console.error('3D Canvas error, falling back to image');
-                        setUse3D(false);
-                    }}
-                >
-                    <ambientLight intensity={0.6} />
-                    <directionalLight position={[2, 5, 3]} intensity={0.8} castShadow />
-                    <pointLight position={[-2, 2, 2]} intensity={0.3} />
-
-                    <Suspense fallback={
-                        <Html center>
-                            <div style={{ color: '#FF00CC', fontSize: '14px', fontFamily: "'Pacifico', cursive" }}>Loading...</div>
-                        </Html>
-                    }>
-                        <Sparkles
-                            count={50}
-                            scale={2}
-                            size={1.5}
-                            speed={0.4}
-                            color="#FF00CC"
-                            position={[0, 0, 0]}
-                        />
-
-                        <Html position={[0, 1.5, 0]} center>
-                            <Text fontSize="1.5rem" color="#FF00CC" whiteSpace="nowrap">Narcis Nacev</Text>
-                        </Html>
-
-                        <Html position={[0, -2.2, 0]} center>
-                            <Button onClick={handleDownload} sx={buttonStyle}>Download Resume</Button>
-                        </Html>
-
-                        <group position={[0, -0.95, 0]}>
-                            <mesh position={[0, 0.02, 0]} castShadow receiveShadow>
-                                <cylinderGeometry args={[0.8, 0.4, 0.2, 32]} />
-                                <meshStandardMaterial
-                                    map={dirtTexture}
-                                    roughness={0.8}
-                                    metalness={0}
-                                />
-                            </mesh>
-
-                            <mesh position={[0, 0.125, 0]} castShadow receiveShadow>
-                                <cylinderGeometry args={[0.8, 0.8, 0.005, 32]} />
-                                <meshStandardMaterial
-                                    map={grassTopTexture}
-                                    roughness={0.8}
-                                    metalness={0}
-                                />
-                            </mesh>
-
-                            <Avatar position={[0, 0.15, 0]} scale={0.9} rotation={[0, 0, 0]} />
-                        </group>
-                    </Suspense>
-
-                    <OrbitControls
-                        enableZoom={false}
-                        enablePan={false}
-                        maxPolarAngle={Math.PI / 1.8}
-                        minPolarAngle={Math.PI / 3}
-                        target={[0, 0, 0]}
-                    />
-                </Canvas>
-            </Box>
-        );
     };
 
     return (
@@ -185,7 +177,7 @@ const Intro = () => {
             alignItems={'center'}
         >
             {isSmallScreen && (
-                <Box maxW="100%" overflow="hidden">
+                <Box maxW="100%" >
                     <AvatarCanvas width="500px" height="500px" />
                 </Box>
             )}
@@ -262,7 +254,7 @@ const Intro = () => {
                     <Button
                         sx={buttonStyle}
                         fontFamily="'Pacifico', cursive"
-                        onClick={() => handleDownload()}
+                        onClick={handleDownload}
                     >
                         Download Resume
                     </Button>

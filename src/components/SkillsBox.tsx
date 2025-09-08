@@ -2,7 +2,7 @@ import { Box, Image, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { ISkillsBox } from '../interfaces/skills.interface.ts';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const SkillsBox = ({ skillName, image }: ISkillsBox) => {
     return (
@@ -17,7 +17,6 @@ const SkillsBox = ({ skillName, image }: ISkillsBox) => {
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
-            cursor="pointer"
             whileHover={{
                 scale: 1.05,
                 rotateY: 10,

@@ -9,3 +9,7 @@ html{
 div[style*="pointer-events: none"][style*="position: fixed"] {
     z-index: 9999 !important;
 }
+
+canvas {
+    touch-action: none;
+}

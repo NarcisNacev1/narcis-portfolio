@@ -1,4 +1,4 @@
-import { Flex, Text, useMediaQuery, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, VStack, useDisclosure } from '@chakra-ui/react';
+import { Flex, Text, useMediaQuery, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, VStack, useDisclosure, Box } from '@chakra-ui/react';
 import { navLinks } from '../styles/components/Navbar.ts';
 import { FiMenu } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
@@ -35,9 +35,7 @@ const Navbar = () => {
         setLastScrollY(currentScrollY);
     };
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    const scrollToSection = (id) => {
+    const scrollToSection = (id: string) => {
         const section = document.getElementById(id);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
@@ -47,71 +45,79 @@ const Navbar = () => {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [handleScroll, lastScrollY]);
+    }, [lastScrollY]);
 
     return (
         <>
-            <motion.div
-                initial="hidden"
-                animate={isVisible ? 'visible' : 'hidden'}
-                variants={navbarVariants}
-                style={{
-                    position: 'fixed',
-                    top: '20px',
-                    left: isSmallScreen ? '14%' : '30%',
-                    transform: 'translateX(-50%)',
-                    margin: '0 auto',
-                    width: 'auto',
-                    padding: '0 32px',
-                    height: '56px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    borderRadius: '30px',
-                    backgroundColor: 'rgba(19, 19, 19, 0.5)',
-                    backdropFilter: 'blur(12px)',
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    zIndex: 1000,
-                }}
+            <Box
+                position="fixed"
+                top="20px"
+                left="0"
+                right="0"
+                display="flex"
+                justifyContent="center"
+                zIndex="1000"
+                px={isSmallScreen ? '4' : '0'}
             >
-                <Flex
-                    gap={is1400wide ? '80px' : '40px'}
-                    fontWeight="semibold"
-                    fontSize="1.2rem"
-                    alignItems="center"
-                    w="100%"
-                    justify="space-between"
+                <motion.div
+                    initial="hidden"
+                    animate={isVisible ? 'visible' : 'hidden'}
+                    variants={navbarVariants}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        borderRadius: '30px',
+                        backgroundColor: 'rgba(19, 19, 19, 0.5)',
+                        backdropFilter: 'blur(12px)',
+                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        padding: '0 32px',
+                        height: '56px',
+                        width: 'auto',
+                        maxWidth: '1200px',
+                    }}
                 >
-                    <Text
-                        fontSize="1.5rem"
-                        fontFamily="'Pacifico', cursive"
-                        display="flex"
+                    <Flex
+                        gap={is1400wide ? '80px' : '40px'}
+                        fontWeight="semibold"
+                        fontSize="1.2rem"
                         alignItems="center"
+                        w="100%"
+                        justify="space-between"
                     >
-                        <Text as="span" color="#FF00CC">N</Text>arcis <Text as="span" color="#FF00CC">N</Text>acev
-                    </Text>
-
-                    {is1400wide ? (
-                        <IconButton
-                            icon={<FiMenu color="rgba(255,255,255,0.65)" />}
+                        <Text
                             fontSize="1.5rem"
-                            onClick={onOpen}
-                            background="transparent"
-                            _hover={{ background: 'transparent' }}
-                            aria-label="Open Menu"
-                        />
-                    ) : (
-                        <Flex gap="30px" alignItems="center">
-                            <Text sx={navLinks} onClick={() => scrollToSection('home')}>Home</Text>
-                            <Text sx={navLinks} onClick={() => scrollToSection('about')}>About</Text>
-                            <Text sx={navLinks} onClick={() => scrollToSection('resume')}>Resume</Text>
-                            <Text sx={navLinks} onClick={() => scrollToSection('skills')}>Skills</Text>
-                            <Text sx={navLinks} onClick={() => scrollToSection('projects')}>Projects</Text>
-                            <Text sx={navLinks} onClick={() => scrollToSection('contact')}>Contact</Text>
-                        </Flex>
-                    )}
-                </Flex>
-            </motion.div>
+                            fontFamily="'Pacifico', cursive"
+                            display="flex"
+                            alignItems="center"
+                            whiteSpace="nowrap"
+                        >
+                            <Text as="span" color="#FF00CC">N</Text>arcis <Text as="span" color="#FF00CC">N</Text>acev
+                        </Text>
+
+                        {is1400wide ? (
+                            <IconButton
+                                icon={<FiMenu color="rgba(255,255,255,0.65)" />}
+                                fontSize="1.5rem"
+                                onClick={onOpen}
+                                bg="transparent"
+                                _hover={{ background: 'transparent' }}
+                                aria-label="Open Menu"
+                            />
+                        ) : (
+                            <Flex gap="30px" alignItems="center" flexWrap="wrap">
+                                <Text sx={navLinks} onClick={() => scrollToSection('home')} >Home</Text>
+                                <Text sx={navLinks} onClick={() => scrollToSection('about')} >About</Text>
+                                <Text sx={navLinks} onClick={() => scrollToSection('resume')} >Resume</Text>
+                                <Text sx={navLinks} onClick={() => scrollToSection('skills')} >Skills</Text>
+                                <Text sx={navLinks} onClick={() => scrollToSection('projects')} >Projects</Text>
+                                <Text sx={navLinks} onClick={() => scrollToSection('contact')} >Contact</Text>
+                            </Flex>
+                        )}
+                    </Flex>
+                </motion.div>
+            </Box>
+
             <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
                 <DrawerContent
@@ -147,6 +153,7 @@ const Navbar = () => {
                                                 scrollToSection(link);
                                                 onClose();
                                             }}
+
                                             _hover={{
                                                 color: '#FF00CC',
                                                 textShadow: '0px 0px 10px rgba(255,0,204,0.6)',

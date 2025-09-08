@@ -108,7 +108,7 @@ const ResumeBox = ({
                                 fontSize={{ base: '1.3rem', sm: '1.6rem' }}
                                 fontWeight="600"
                                 color="#FFFFFF"
-                                fontFamily="'Ariel', cursive"
+                                fontFamily="'Arial', cursive"
                                 textShadow="0px 0px 10px rgba(255, 0, 204, 0.3)"
                             >
                                 {schoolName}

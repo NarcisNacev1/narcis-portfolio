@@ -81,7 +81,7 @@ const Resume = () => {
                                 fontSize={{ base: '1.5rem', sm: '1.875rem' }}
                                 fontWeight="bold"
                                 textAlign="left"
-                                fontFamily="'Ariel', cursive"
+                                fontFamily="'Arial', cursive"
                                 width={isPhoneScreen || isTabletScreen || isBelow1358px ? '80%' : ' '}
                                 px="20px"
                                 pt="50px"
@@ -122,7 +122,7 @@ const Resume = () => {
                                 color="#FFFFFF"
                                 fontSize={{ base: '1.5rem', sm: '1.875rem' }}
                                 fontWeight="bold"
-                                fontFamily="'Ariel', cursive"
+                                fontFamily="'Arial', cursive"
                                 textAlign={isPhoneScreen || isTabletScreen || isBelow1358px ? 'left' : 'right'}
                                 mr={isPhoneScreen || isTabletScreen || isBelow1358px ? '100px' : '300px'}
                                 width={isPhoneScreen || isTabletScreen || isBelow1358px ? '80%' : ' '}
