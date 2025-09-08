@@ -27,7 +27,7 @@ const AboutMe = () => {
             id={'about'}
             border="0px solid red"
             height="auto"
-            width={'80%'}
+            width={'90%'}
             maxW="1400px"
             m={'33px auto'}
             display={'flex'}
