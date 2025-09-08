@@ -147,7 +147,7 @@ const AboutMe = () => {
                             lineHeight={'2.3'}
                             wordBreak="break-word"
                         >
-                            As a junior frontend developer, I bring a strong foundation in modern web technologies and hands-on experience from internships
+                            As a software engineer, I bring a strong foundation in modern web technologies and hands-on experience from internships
                             and real-world projects. My focus is on crafting secure, scalable, and visually engaging interfaces using
                             Vue.js, React, TypeScript, and JavaScript. I'm passionate about continuous learning and thrive in collaborative environments where
                             I can deepen my understanding of agile workflows, QA processes, and team communication.
