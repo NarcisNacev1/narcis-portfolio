@@ -2,6 +2,7 @@ import { Box, Button, Flex, HStack, Text, VStack, useMediaQuery } from '@chakra-
 import { Canvas, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html, Sparkles } from '@react-three/drei';
 import { FiGithub, FiInstagram, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FaResearchgate } from 'react-icons/fa';
 import { buttonStyle, iconFlexStyle, iconStyle } from '../styles/sections/intro.ts';
 import { Avatar } from '../components/Avatar.tsx';
 import { Suspense, useState } from 'react';
@@ -292,6 +293,9 @@ const Intro = () => {
                     </Flex>
                     <Flex sx={iconFlexStyle} as="a" href="https://www.instagram.com/nacevnarcis/" target="_blank">
                         <FiInstagram style={iconStyle} />
+                    </Flex>
+                    <Flex sx={iconFlexStyle} as="a" href="https://www.researchgate.net/profile/Narcis-Nacev?ev=prf_overview" target="_blank">
+                        <FaResearchgate style={iconStyle} />
                     </Flex>
                 </HStack>
             </VStack>
